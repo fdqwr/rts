@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
+  m_Name: Airfield
+  m_EditorClassIdentifier: 
+  asset:
+    m_AssetGUID: f9f52b73dd2d8ad43ab62a4eecec90f1
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  uB: {fileID: 11400000, guid: 9af2b2cc1c3c3b946af7daef04101a27, type: 2}
+  unitImage: {fileID: 21300000, guid: cd0e0ab937a558b42af9376915ac354e, type: 3}
+  occupyPSlots: 0
+  type: 3
+  cost: 300
+  maxHealth: 100
+  stoppingDistance: 1
+  buildPointsNeeded: 1
+  whenBuildOffset: 22
+  spawnSpeed: 3
+  rotateVisualToTarget: 0
+  animDeath: 0
+  spawnUnits: 1
+  unitType: 0
+  wheelsAxis: {x: 0, y: 0, z: 1}
+  size: {x: 30, y: 1, z: 54}
+  spawnOnBuild: 

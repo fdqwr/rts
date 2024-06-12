@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
+  m_Name: Barracks
+  m_EditorClassIdentifier: 
+  asset:
+    m_AssetGUID: 3d3de1a92c8f1524db22250acfac22eb
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  uB: {fileID: 11400000, guid: 5f9ad3cecdf17c241a12fa38dffe15f7, type: 2}
+  unitImage: {fileID: 21300000, guid: 96001cdea685aad47ac4a861bfd2a382, type: 3}
+  occupyPSlots: 0
+  type: 1
+  cost: 300
+  maxHealth: 50
+  stoppingDistance: 1
+  buildPointsNeeded: 1
+  whenBuildOffset: 7.7
+  spawnSpeed: 1
+  rotateVisualToTarget: 0
+  animDeath: 0
+  spawnUnits: 1
+  unitType: 0
+  wheelsAxis: {x: 0, y: 0, z: 1}
+  size: {x: 16, y: 3, z: 25}
+  spawnOnBuild: 
