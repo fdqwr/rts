@@ -104,18 +104,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 3d8fe7aef4beb1b4bb8dd16faf0006d9, type: 2}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 3d8fe7aef4beb1b4bb8dd16faf0006d9, type: 2}
   characterAnimator: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 612898274501125396}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 5670212730253534798}
-  newUnitPosition: {fileID: 1284626019065117229}
+  <visualObject>k__BackingField: {fileID: 612898274501125396}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 5670212730253534798}
+  newUnitSpawnPosition: {fileID: 0}
+  newUnitAfterSpawnPosition: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor: []
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!114 &-6984343152295783248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,10 +131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a51b40c58ee0fd449c65bf15908c66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceStart: 10000
-  resourceCarryCapacity: 0
+  <resourceStart>k__BackingField: 0
+  <resourceCarryCapacity>k__BackingField: 0
   resourceCarryDelay: 0
-  isResourceStockpile: 0
+  <isResourceStockpile>k__BackingField: 0
   resVisual:
   - {fileID: 8977479372437755989}
   - {fileID: 8109998482091743648}
@@ -170,7 +173,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 26, y: 3, z: 26}
   m_Center: {x: 0, y: 1.5, z: 0}

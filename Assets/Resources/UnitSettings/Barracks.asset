@@ -12,26 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
   m_Name: Barracks
   m_EditorClassIdentifier: 
-  asset:
+  <unitButtons>k__BackingField:
+  - buttonType: 1
+    iD: 9
+  - buttonType: 1
+    iD: 10
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  <asset>k__BackingField:
     m_AssetGUID: 3d3de1a92c8f1524db22250acfac22eb
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  uB: {fileID: 11400000, guid: 5f9ad3cecdf17c241a12fa38dffe15f7, type: 2}
-  unitImage: {fileID: 21300000, guid: 96001cdea685aad47ac4a861bfd2a382, type: 3}
-  occupyPSlots: 0
-  type: 1
-  cost: 300
-  maxHealth: 50
-  stoppingDistance: 1
-  buildPointsNeeded: 1
-  whenBuildOffset: 7.7
-  spawnSpeed: 1
-  rotateVisualToTarget: 0
-  animDeath: 0
-  spawnUnits: 1
-  unitType: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  size: {x: 16, y: 3, z: 25}
-  spawnOnBuild: 
+  <unitImage>k__BackingField: {fileID: 21300000, guid: 96001cdea685aad47ac4a861bfd2a382, type: 3}
+  <occupyPSlots>k__BackingField: 0
+  <type>k__BackingField: 2
+  <cost>k__BackingField: 1
+  <maxHealth>k__BackingField: 100
+  <stoppingDistance>k__BackingField: 1
+  <buildPointsNeeded>k__BackingField: 5
+  <constructionOffset>k__BackingField: 10
+  <spawnSpeedModifier>k__BackingField: 1
+  <rotateVisualToTarget>k__BackingField: 0
+  <animDeath>k__BackingField: 0
+  <unitType>k__BackingField: 0
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <size>k__BackingField: {x: 1, y: 1, z: 1}
+  <spawnOnBuild>k__BackingField: 

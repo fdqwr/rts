@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &411244373872359843
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8935230889890427246}
+  m_Layer: 6
+  m_Name: SpawnAfterPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8935230889890427246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411244373872359843}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.24, y: 1.39, z: 17.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6907839278688294840}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592352473081082635
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +396,7 @@ Transform:
   m_Children:
   - {fileID: 9004067280959884932}
   - {fileID: 6294418453801985364}
+  - {fileID: 8935230889890427246}
   - {fileID: 4413302854375158428}
   - {fileID: 3177101076433161039}
   m_Father: {fileID: 0}
@@ -402,19 +434,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 679ff0e5cacb1914894c59f893c4e82e, type: 2}
-  characterAnimator: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 679ff0e5cacb1914894c59f893c4e82e, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 2836287224461332981}
-  constructionBox: {fileID: 592352473081082635}
-  targetTransform: {fileID: 4413302854375158428}
-  newUnitPosition: {fileID: 6294418453801985364}
+  <visualObject>k__BackingField: {fileID: 2836287224461332981}
+  <constructionBox>k__BackingField: {fileID: 592352473081082635}
+  <targetTransform>k__BackingField: {fileID: 4413302854375158428}
+  newUnitSpawnPosition: {fileID: 6294418453801985364}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 8935230889890427246}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
   - {fileID: 4349483574530977824}
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!65 &6701884316481738013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -434,7 +469,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 16, y: 3, z: 25}
+  m_Size: {x: 20, y: 3, z: 31}
   m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!208 &751520921406212004
 NavMeshObstacle:
@@ -446,7 +481,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 8, y: 1.5, z: 12.5}
+  m_Extents: {x: 10, y: 1.5, z: 15.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -507,13 +542,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355270191200648685}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -19.8, y: 1.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6907839278688294840}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649369070032651653
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,13 +573,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649369070032651653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.59, y: 0, z: 14.61}
+  m_LocalRotation: {x: 0, y: 0.10452846, z: 0, w: 0.9945219}
+  m_LocalPosition: {x: -0.03, y: 1.39, z: -2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6907839278688294840}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 12, z: 0}
 --- !u!1001 &3142929686719507620
 PrefabInstance:
   m_ObjectHideFlags: 0

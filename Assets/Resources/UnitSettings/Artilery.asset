@@ -12,26 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
   m_Name: Artilery
   m_EditorClassIdentifier: 
-  asset:
+  <unitButtons>k__BackingField:
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  <asset>k__BackingField:
     m_AssetGUID: c2fd574a31f368f4ab98f0fd6e3d61be
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  uB: {fileID: 11400000, guid: 1ba47a016733c3f40a51bcd15d91c0ea, type: 2}
-  unitImage: {fileID: 21300000, guid: 7a6d468b06d15c849b1bdeffc114c2f5, type: 3}
-  occupyPSlots: 0
-  type: 9
-  cost: 300
-  maxHealth: 100
-  stoppingDistance: 1
-  buildPointsNeeded: 100
-  whenBuildOffset: 3
-  spawnSpeed: 3
-  rotateVisualToTarget: 0
-  animDeath: 0
-  spawnUnits: 0
-  unitType: 2
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  size: {x: 1, y: 1, z: 1}
-  spawnOnBuild: 
+  <unitImage>k__BackingField: {fileID: 21300000, guid: 7a6d468b06d15c849b1bdeffc114c2f5, type: 3}
+  <occupyPSlots>k__BackingField: 0
+  <type>k__BackingField: 11
+  <cost>k__BackingField: 1
+  <maxHealth>k__BackingField: 100
+  <stoppingDistance>k__BackingField: 1
+  <buildPointsNeeded>k__BackingField: 6
+  <constructionOffset>k__BackingField: 0
+  <spawnSpeedModifier>k__BackingField: 1
+  <rotateVisualToTarget>k__BackingField: 0
+  <animDeath>k__BackingField: 0
+  <unitType>k__BackingField: 2
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <size>k__BackingField: {x: 1, y: 1, z: 1}
+  <spawnOnBuild>k__BackingField: 

@@ -1110,7 +1110,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: cf28b1beaa3f3de46816ba873abaad22, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1147,7 +1147,7 @@ LODGroup:
     - renderer: {fileID: 5197730950719489932}
     - renderer: {fileID: 6719272546204440562}
     - renderer: {fileID: 4869210095718928591}
-  - screenRelativeHeight: 0
+  - screenRelativeHeight: 0.012983518
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 192429675067525959}
@@ -6503,13 +6503,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 3713869ce0df7aa47a8d4e6ace2e1c45, type: 2}
-  characterAnimator: {fileID: 3186971640757501841}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 3713869ce0df7aa47a8d4e6ace2e1c45, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 3186971640757501841}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 8011038403099691947}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 2380024620781232974}
-  newUnitPosition: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 8011038403099691947}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 2380024620781232974}
+  newUnitSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 2, z: 0}
   wheels:
   - {fileID: 3732288690776303979}
@@ -6519,13 +6522,13 @@ MonoBehaviour:
   - {fileID: 6272369210334267419}
   - {fileID: 6374480973995971336}
   unitSkinnedRendererColor: []
-  unitWeapons:
+  <unitWeapons>k__BackingField:
   - unitAim: {fileID: 1772976894431560436}
     unitAimParent: 0
-    damage: 50
+    damage: 25
     firerate: 3
     ammoSize: 0
-    reloadSpeed: 0
+    reloadSpeed: 3
     cFirerateReload: 0
     cReloadSpeed: 0
     currentAmmo: 0
@@ -6533,10 +6536,10 @@ MonoBehaviour:
     projectile: {fileID: 6085063438914850293, guid: 0d213b93c5ae5b04cb9c7fd7ea3d4168, type: 3}
     projectileSpawn:
     - {fileID: 2944989650812880657}
-    projectileHoming: 0
+    isProjectileHoming: 0
     projectileSpeed: 25
     maxDistance: 60
-    minDistance: 20
+    minDistance: 0
 --- !u!114 &1772976894431560436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6550,12 +6553,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 4152888912029229581}
-  cannon: {fileID: 7783765367214740537}
+  <cannon>k__BackingField: {fileID: 7783765367214740537}
   verticalRotSpeed: 60
   mVertical: 20
   pVertical: 90
   horizontalRotSpeed: 360
-  ballisticTrajectory: 1
+  <ballisticTrajectory>k__BackingField: 1
   lowArc: 0
 --- !u!65 &646528881107491678
 BoxCollider:
@@ -6585,7 +6588,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420126916295112626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1.78
   m_Speed: 5

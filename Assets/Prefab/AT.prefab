@@ -5117,36 +5117,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 89e554fe36005bc40b719dd1323ba0a9, type: 2}
-  characterAnimator: {fileID: 3839479017507145938}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 89e554fe36005bc40b719dd1323ba0a9, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 3839479017507145938}
   onDeathEffect: {fileID: 5920230361066474579}
-  visualObject: {fileID: 441625600802537866}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 2374046093220666068}
-  newUnitPosition: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 441625600802537866}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 2374046093220666068}
+  newUnitSpawnPosition: {fileID: 0}
+  newUnitAfterSpawnPosition: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor: []
   unitSkinnedRendererColor:
   - {fileID: 2235507972429582604}
   - {fileID: 8775849777125025742}
-  unitWeapons:
+  <unitWeapons>k__BackingField:
   - unitAim: {fileID: 0}
     unitAimParent: 0
-    damage: 50
-    firerate: 1.5
+    damage: 25
+    firerate: 1
     ammoSize: 0
-    reloadSpeed: 0
+    reloadSpeed: 3
     cFirerateReload: 0
     cReloadSpeed: 0
     currentAmmo: 0
     shootParticles: {fileID: 4587761101092563039}
-    projectile: {fileID: 3174582512167711093, guid: 4a46e05357161294697e9246ca4cb09d, type: 3}
-    projectileSpawn:
-    - {fileID: 256110169101932682}
-    projectileHoming: 1
-    projectileSpeed: 50
-    maxDistance: 50
+    projectile: {fileID: 4756995643252476655}
+    projectileSpawn: []
+    isProjectileHoming: 1
+    projectileSpeed: 25
+    maxDistance: 35
     minDistance: 0
 --- !u!195 &7730709608946453839
 NavMeshAgent:
@@ -5155,7 +5157,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5020530220477445015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
@@ -10426,7 +10428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 928df0e3bf2353944964efec82987a70, type: 3}
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
-      value: 0
+      value: 0.014866933
       objectReference: {fileID: 0}
     - target: {fileID: 5788868806342031953, guid: 928df0e3bf2353944964efec82987a70, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10526,7 +10528,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 214f40ec9bfc9454c883e3f9b3454b4b, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0

@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 112579522
+  GlobalObjectIdHash: 3487090522
   InScenePlacedSourceGlobalObjectIdHash: 2196005913
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -320,28 +320,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 90f937ce2cbfc5f4e8c243bfea77d260, type: 2}
-  charAnim: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 90f937ce2cbfc5f4e8c243bfea77d260, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 5771073303427516673}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 877370740486536736}
-  newUnitPos: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 2911458655447439377}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 877370740486536736}
+  newUnitSpawnPosition: {fileID: 0}
+  newUnitAfterSpawnPosition: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
   - {fileID: 3704043879373339076}
   unitSkinnedRendererColor: []
-  unitWeapons:
+  <unitWeapons>k__BackingField:
   - unitAim: {fileID: 0}
     unitAimParent: 0
-    damage: 100
-    firerate: 0.15
+    damage: 15
+    firerate: 0.2
     ammoSize: 6
     reloadSpeed: 0
     cFirerateReload: 0
     cReloadSpeed: 0
-    cAmmo: 0
+    currentAmmo: 0
     shootParticles: {fileID: 0}
     projectile: {fileID: 4551755868784217734, guid: 58e65138876484a469b640579771fe43, type: 3}
     projectileSpawn:
@@ -351,9 +354,9 @@ MonoBehaviour:
     - {fileID: 5382820538062820836}
     - {fileID: 3594446354872617066}
     - {fileID: 4823440011744920111}
-    projectileHoming: 1
-    projectileSpeed: 250
-    maxDistance: 150
+    isProjectileHoming: 1
+    projectileSpeed: 25
+    maxDistance: 100
     minDistance: 0
 --- !u!114 &-5422698003331684019
 MonoBehaviour:
@@ -367,12 +370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hangarPositions: []
-  aircraftRunway: []
-  outHangar: []
+  aircraftHangar: []
   helicopterBlade: []
   speed: 50
-  flyDestination: {x: 0, y: 0, z: 0}
+  onTheGroundSpeed: 3
+  nearTakeOffSpeed: 7
+  rotationSpeed: 0
   unit: {fileID: 0}
 --- !u!65 &5282614476708858468
 BoxCollider:
@@ -731,6 +734,11 @@ PrefabInstance:
 --- !u!4 &2534476093329375915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 90ecb119c7c16284b98a64a45d58c1d5, type: 3}
+  m_PrefabInstance: {fileID: 2641077410214405440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2911458655447439377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 90ecb119c7c16284b98a64a45d58c1d5, type: 3}
   m_PrefabInstance: {fileID: 2641077410214405440}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &3704043879373339076 stripped

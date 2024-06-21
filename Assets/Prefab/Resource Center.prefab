@@ -465,19 +465,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 2d7fd48482bb0a6458e7d9d17f8ddc68, type: 2}
-  characterAnimator: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 2d7fd48482bb0a6458e7d9d17f8ddc68, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 4889271243932730298}
-  constructionBox: {fileID: 6178976925585119542}
-  targetTransform: {fileID: 8766063227380513354}
-  newUnitPosition: {fileID: 7794946448511802251}
+  <visualObject>k__BackingField: {fileID: 4889271243932730298}
+  <constructionBox>k__BackingField: {fileID: 6178976925585119542}
+  <targetTransform>k__BackingField: {fileID: 8766063227380513354}
+  newUnitSpawnPosition: {fileID: 7794946448511802251}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 7794946448511802251}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
   - {fileID: 6402660969218777711}
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!114 &336631887054328976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,10 +493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a51b40c58ee0fd449c65bf15908c66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceStart: 0
-  resourceCarryCapacity: 0
+  <resourceStart>k__BackingField: 0
+  <resourceCarryCapacity>k__BackingField: 0
   resourceCarryDelay: 0
-  isResourceStockpile: 1
+  <isResourceStockpile>k__BackingField: 0
   resVisual: []
 --- !u!65 &5683518079961746731
 BoxCollider:

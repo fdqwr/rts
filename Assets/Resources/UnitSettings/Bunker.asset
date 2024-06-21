@@ -12,25 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
   m_Name: Bunker
   m_EditorClassIdentifier: 
-  asset:
+  <unitButtons>k__BackingField:
+  - buttonType: 4
+    iD: 0
+  - buttonType: 4
+    iD: 0
+  - buttonType: 4
+    iD: 0
+  - buttonType: 4
+    iD: 0
+  - buttonType: 4
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  - buttonType: 0
+    iD: 0
+  <asset>k__BackingField:
     m_AssetGUID: b7d7c619779999f49b9d5b9360fa6193
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  uB: {fileID: 11400000, guid: b5e53686079476445884e34f5aa2a909, type: 2}
-  unitImage: {fileID: 0}
-  occupyPSlots: 0
-  type: 14
-  cost: 300
-  maxHealth: 100
-  stoppingDistance: 1
-  buildPointsNeeded: 6.29
-  whenBuildOffset: 3
-  spawnSpeed: 3
-  rotateVisualToTarget: 0
-  animDeath: 0
-  unitType: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  size: {x: 1, y: 1, z: 1}
-  spawnOnBuild: 
+  <unitImage>k__BackingField: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  <occupyPSlots>k__BackingField: 0
+  <type>k__BackingField: 6
+  <cost>k__BackingField: 1
+  <maxHealth>k__BackingField: 100
+  <stoppingDistance>k__BackingField: 1
+  <buildPointsNeeded>k__BackingField: 3
+  <constructionOffset>k__BackingField: 0
+  <spawnSpeedModifier>k__BackingField: 1
+  <rotateVisualToTarget>k__BackingField: 0
+  <animDeath>k__BackingField: 0
+  <unitType>k__BackingField: 0
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <size>k__BackingField: {x: 1, y: 1, z: 1}
+  <spawnOnBuild>k__BackingField: 

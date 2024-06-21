@@ -136,19 +136,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 130ee3a8f9666834abcf125d2c86ae85, type: 2}
-  charAnim: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 130ee3a8f9666834abcf125d2c86ae85, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 73155820251676088}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 6408930477126121939}
-  newUnitPos: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 73155820251676088}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 6408930477126121939}
+  newUnitSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
   - {fileID: 2276154506521857540}
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!114 &-4414438377097225051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,10 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a51b40c58ee0fd449c65bf15908c66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceStart: 0
-  resourceCarryCapacity: 100
+  <resourceStart>k__BackingField: 0
+  <resourceCarryCapacity>k__BackingField: 100
   resourceCarryDelay: 3
-  isResourceStockpile: 0
+  <isResourceStockpile>k__BackingField: 0
   resVisual: []
 --- !u!195 &2087704908948435958
 NavMeshAgent:
@@ -173,7 +176,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8747205842680143305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1.5
   m_Speed: 5

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6648283143956801494}
   m_Layer: 6
-  m_Name: AircraftHangar 3
+  m_Name: AircraftNearHangar 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 53165875784215831}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 6.78, y: 0.126, z: -4.16}
+  m_LocalPosition: {x: 6.330009, y: 0.126, z: -4.16}
   m_LocalScale: {x: 0.6999998, y: 0.7, z: 0.6999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3684858917651734035
 Transform:
   m_ObjectHideFlags: 0
@@ -195,24 +195,24 @@ MonoBehaviour:
   m_Positions:
   - {x: -15.247545, y: -0.36486912, z: 27.530901}
   - {x: 15.296778, y: -0.36486912, z: 27.530901}
-  - {x: -15.247545, y: 21.082184, z: 27.530901}
-  - {x: 15.296778, y: 21.082184, z: 27.530901}
+  - {x: -15.247545, y: 5.032754, z: 27.530901}
+  - {x: 15.296778, y: 5.032754, z: 27.530901}
   - {x: 15.296778, y: -0.36486912, z: 27.530901}
   - {x: 15.296778, y: -0.36486912, z: -26.68447}
-  - {x: 15.296778, y: 21.082184, z: 27.530901}
-  - {x: 15.296778, y: 21.082184, z: -26.68447}
+  - {x: 15.296778, y: 5.032754, z: 27.530901}
+  - {x: 15.296778, y: 5.032754, z: -26.68447}
   - {x: 15.296778, y: -0.36486912, z: -26.68447}
   - {x: -15.247545, y: -0.36486912, z: -26.68447}
-  - {x: 15.296778, y: 21.082184, z: -26.68447}
-  - {x: -15.247545, y: 21.082184, z: -26.68447}
+  - {x: 15.296778, y: 5.032754, z: -26.68447}
+  - {x: -15.247545, y: 5.032754, z: -26.68447}
   - {x: -15.247545, y: -0.36486912, z: -26.68447}
   - {x: -15.247545, y: -0.36486912, z: 27.530901}
-  - {x: -15.247545, y: 21.082184, z: -26.68447}
-  - {x: -15.247545, y: 21.082184, z: 27.530901}
-  - {x: -15.247545, y: 21.082184, z: 27.530901}
-  - {x: 15.296778, y: 21.082184, z: 27.530901}
-  - {x: -15.247545, y: 21.082184, z: -26.68447}
-  - {x: 15.296778, y: 21.082184, z: -26.68447}
+  - {x: -15.247545, y: 5.032754, z: -26.68447}
+  - {x: -15.247545, y: 5.032754, z: 27.530901}
+  - {x: -15.247545, y: 5.032754, z: 27.530901}
+  - {x: 15.296778, y: 5.032754, z: 27.530901}
+  - {x: -15.247545, y: 5.032754, z: -26.68447}
+  - {x: 15.296778, y: 5.032754, z: -26.68447}
   - {x: -15.247545, y: -0.36486912, z: -26.68447}
   - {x: 15.296778, y: -0.36486912, z: -26.68447}
   - {x: -15.247545, y: -0.36486912, z: 27.530901}
@@ -220,20 +220,20 @@ MonoBehaviour:
   m_Textures0:
   - {x: 15.247545, y: -0.36486912}
   - {x: -15.296778, y: -0.36486912}
-  - {x: 15.247545, y: 21.082184}
-  - {x: -15.296778, y: 21.082184}
+  - {x: 15.247545, y: 5.032754}
+  - {x: -15.296778, y: 5.032754}
   - {x: 27.530901, y: -0.36486912}
   - {x: -26.68447, y: -0.36486912}
-  - {x: 27.530901, y: 21.082184}
-  - {x: -26.68447, y: 21.082184}
+  - {x: 27.530901, y: 5.032754}
+  - {x: -26.68447, y: 5.032754}
   - {x: 15.296778, y: -0.36486912}
   - {x: -15.247545, y: -0.36486912}
-  - {x: 15.296778, y: 21.082184}
-  - {x: -15.247545, y: 21.082184}
+  - {x: 15.296778, y: 5.032754}
+  - {x: -15.247545, y: 5.032754}
   - {x: 26.68447, y: -0.36486912}
   - {x: -27.530901, y: -0.36486912}
-  - {x: 26.68447, y: 21.082184}
-  - {x: -27.530901, y: 21.082184}
+  - {x: 26.68447, y: 5.032754}
+  - {x: -27.530901, y: 5.032754}
   - {x: -15.247545, y: 27.530901}
   - {x: 15.296778, y: 27.530901}
   - {x: -15.247545, y: -26.68447}
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 11999
+  m_VersionIndex: 13159
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -298,9 +298,9 @@ MonoBehaviour:
   m_Shape:
     rid: 8901509373129392212
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 11999
-  m_Size: {x: -30.544323, y: 21.447054, z: -54.21537}
-  m_LocalCenter: {x: 0.024616241, y: 10.358658, z: 0.42321587}
+  m_UnmodifiedMeshVersion: 13159
+  m_Size: {x: -30.544323, y: 5.397623, z: -54.21537}
+  m_LocalCenter: {x: 0.024616241, y: 2.3339424, z: 0.42321587}
   references:
     version: 2
     RefIds:
@@ -343,7 +343,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6276503092116999094}
   m_Layer: 6
-  m_Name: Hangar
+  m_Name: NearHangar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,12 +420,47 @@ Transform:
   m_GameObject: {fileID: 767365269716761539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.020002, y: 0.126, z: 11.508002}
+  m_LocalPosition: {x: -13.020002, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 904709395124295411}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1454490942487832932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5373631026516083718}
+  m_Layer: 6
+  m_Name: InHangar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5373631026516083718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454490942487832932}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6511227311357254532}
+  - {fileID: 6403245540104866816}
+  - {fileID: 5514123807063532031}
+  - {fileID: 5164588884630756137}
+  m_Father: {fileID: 376870615358404764}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464154621821483239
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 812432735494227911}
   m_Layer: 6
-  m_Name: AircraftHangar 1
+  m_Name: AircraftNearHangar 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -451,12 +486,43 @@ Transform:
   m_GameObject: {fileID: 1464154621821483239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 15.63, y: 0.126, z: 11.51}
+  m_LocalPosition: {x: 15.63, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6276503092116999094}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &1872438365023178299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5164588884630756137}
+  m_Layer: 6
+  m_Name: AircraftInHangar 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5164588884630756137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872438365023178299}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.8900006, y: 0.18, z: -13.250004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5373631026516083718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908113160398642810
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +548,7 @@ Transform:
   m_GameObject: {fileID: 1908113160398642810}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.020002, y: 0.126, z: 4.0249996}
+  m_LocalPosition: {x: -13.020002, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -533,7 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745838698826353153}
   m_Layer: 6
-  m_Name: AircraftHangar 2
+  m_Name: AircraftNearHangar 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -548,7 +614,7 @@ Transform:
   m_GameObject: {fileID: 3223673568250910722}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 15.63, y: 0.126, z: 4.03}
+  m_LocalPosition: {x: 15.63, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 3228029179501257794}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.020002, y: 0.126, z: 4.0249996}
+  m_LocalPosition: {x: -13.020002, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -625,6 +691,7 @@ Transform:
   - {fileID: 904709395124295411}
   - {fileID: 1917113784336552230}
   - {fileID: 6276503092116999094}
+  - {fileID: 5373631026516083718}
   - {fileID: 8306791613753285216}
   - {fileID: 1489576212824901579}
   m_Father: {fileID: 0}
@@ -662,19 +729,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: 2ab6ca51ee44cf0498a36cd10d9286f2, type: 2}
-  characterAnimator: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: 2ab6ca51ee44cf0498a36cd10d9286f2, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 3133707674072500187}
-  constructionBox: {fileID: 480437075803825390}
-  targetTransform: {fileID: 8306791613753285216}
-  newUnitPosition: {fileID: 1489576212824901579}
+  <visualObject>k__BackingField: {fileID: 3133707674072500187}
+  <constructionBox>k__BackingField: {fileID: 480437075803825390}
+  <targetTransform>k__BackingField: {fileID: 8306791613753285216}
+  newUnitSpawnPosition: {fileID: 1489576212824901579}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 1489576212824901579}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
-  - {fileID: 0}
+  - {fileID: 1782300390525348933}
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!114 &1325363178686490528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,17 +757,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hangarPositions:
+  aircraftHangar:
+  - hangarDoor: {fileID: 2240472637674660647}
+    inHangarPosition: {fileID: 6511227311357254532}
+    nearHangarPosition: {fileID: 812432735494227911}
+    aircraftRunwayPosition: {fileID: 8381467240551541308}
+    outHangarPosition: {fileID: 8141146181770679094}
+    aircraftForHangar: {fileID: 0}
+  - hangarDoor: {fileID: 7595604023979735731}
+    inHangarPosition: {fileID: 6403245540104866816}
+    nearHangarPosition: {fileID: 745838698826353153}
+    aircraftRunwayPosition: {fileID: 3051974874226319639}
+    outHangarPosition: {fileID: 8163764832743348320}
+    aircraftForHangar: {fileID: 0}
+  - hangarDoor: {fileID: 7221641980321925989}
+    inHangarPosition: {fileID: 5514123807063532031}
+    nearHangarPosition: {fileID: 6648283143956801494}
+    aircraftRunwayPosition: {fileID: 29602941003613580}
+    outHangarPosition: {fileID: 838206476165778453}
+    aircraftForHangar: {fileID: 0}
+  - hangarDoor: {fileID: 5273559123266519402}
+    inHangarPosition: {fileID: 5164588884630756137}
+    nearHangarPosition: {fileID: 8400733131645988701}
+    aircraftRunwayPosition: {fileID: 7220854300138459378}
+    outHangarPosition: {fileID: 7509819278864399982}
+    aircraftForHangar: {fileID: 0}
+  helicopterBlade:
   - {fileID: 812432735494227911}
   - {fileID: 745838698826353153}
   - {fileID: 6648283143956801494}
   - {fileID: 8400733131645988701}
-  aircraftRunwayPositions: []
-  outHangarPositions: []
-  helicopterBlade: []
   speed: 10
-  flyDestination: {x: 0, y: 0, z: 0}
-  unit: {fileID: 0}
+  onTheGroundSpeed: 3
+  nearTakeOffSpeed: 7
+  rotationSpeed: 0
 --- !u!65 &7092944375182717549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -766,6 +859,37 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!1 &4909960901014847222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6403245540104866816}
+  m_Layer: 6
+  m_Name: AircraftInHangar 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6403245540104866816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909960901014847222}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 24.724022, y: 0.18, z: 3.9300041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5373631026516083718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5025664504732578362
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,12 +915,43 @@ Transform:
   m_GameObject: {fileID: 5025664504732578362}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: -1.9250004, y: 0.126, z: 4.0250006}
+  m_LocalPosition: {x: -1.890001, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.6999998, y: 0.7, z: 0.6999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1917113784336552230}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &5070054733789838285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6511227311357254532}
+  m_Layer: 6
+  m_Name: AircraftInHangar 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6511227311357254532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5070054733789838285}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 24.720009, y: 0.18, z: 11.300002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5373631026516083718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5222399083704355984
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +987,37 @@ Transform:
   - {fileID: 7509819278864399982}
   m_Father: {fileID: 376870615358404764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5372664417455055419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5514123807063532031}
+  m_Layer: 6
+  m_Name: AircraftInHangar 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5514123807063532031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372664417455055419}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.3300085, y: 0.18, z: -13.2500105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5373631026516083718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5644374163574781580
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +1043,7 @@ Transform:
   m_GameObject: {fileID: 5644374163574781580}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 6.916001, y: 0.126, z: 11.508001}
+  m_LocalPosition: {x: 6.916001, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -873,7 +1059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8400733131645988701}
   m_Layer: 6
-  m_Name: AircraftHangar 4
+  m_Name: AircraftNearHangar 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -888,7 +1074,7 @@ Transform:
   m_GameObject: {fileID: 6473333613018560502}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: -1.92, y: 0.126, z: -4.16}
+  m_LocalPosition: {x: -1.890001, y: 0.126, z: -4.16}
   m_LocalScale: {x: 0.6999998, y: 0.7, z: 0.6999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -919,7 +1105,7 @@ Transform:
   m_GameObject: {fileID: 6516013494375698770}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.020002, y: 0.126, z: 4.0249996}
+  m_LocalPosition: {x: -13.020002, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -950,7 +1136,7 @@ Transform:
   m_GameObject: {fileID: 7102031982131017005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 6.7760015, y: 0.126, z: 4.0250006}
+  m_LocalPosition: {x: 6.330009, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.6999998, y: 0.7, z: 0.6999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -981,7 +1167,7 @@ Transform:
   m_GameObject: {fileID: 8973253194080816950}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 6.916001, y: 0.126, z: 4.0250006}
+  m_LocalPosition: {x: 6.916001, y: 0.126, z: 3.930004}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1042,9 +1228,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9072249173875468853}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.1033406, y: -13.2655945, z: -6.66098}
-  m_LocalScale: {x: 0.6999999, y: 0.7, z: 0.6999999}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.61, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 376870615358404764}
@@ -1071,11 +1257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1083,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1091,7 +1277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1130,6 +1316,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+--- !u!23 &1782300390525348933 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+  m_PrefabInstance: {fileID: 2863237504630061706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2240472637674660647 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4083501151425157549, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+  m_PrefabInstance: {fileID: 2863237504630061706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2321317717823561057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
@@ -1138,5 +1334,20 @@ Transform:
 --- !u!1 &3133707674072500187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+  m_PrefabInstance: {fileID: 2863237504630061706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5273559123266519402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1255605710908113952, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+  m_PrefabInstance: {fileID: 2863237504630061706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7221641980321925989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4865064391339405807, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
+  m_PrefabInstance: {fileID: 2863237504630061706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7595604023979735731 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3542852092398272455, guid: b97e3cc6ef6c590429e29a2daee98748, type: 3}
   m_PrefabInstance: {fileID: 2863237504630061706}
   m_PrefabAsset: {fileID: 0}

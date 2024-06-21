@@ -483,19 +483,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: ff1f6d891d068a344bc84d3bf9e2384e, type: 2}
-  charAnim: {fileID: 0}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: ff1f6d891d068a344bc84d3bf9e2384e, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 0}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 9201058506572658566}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 5067295252493389508}
-  newUnitPos: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 9201058506572658566}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 5067295252493389508}
+  newUnitSpawnPosition: {fileID: 0}
+  newUnitAfterSpawnPosition: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor:
   - {fileID: 5508346219389590552}
   unitSkinnedRendererColor: []
-  unitWeapons: []
+  <unitWeapons>k__BackingField: []
 --- !u!114 &7870909781217187948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,10 +520,10 @@ MonoBehaviour:
   - {fileID: 5920872193864677222}
   - {fileID: 7131954601292341330}
   - {fileID: 1911647456544556681}
-  hideInside: 1
-  shootFromInside: 0
+  <hideInside>k__BackingField: 0
+  <shootFromInside>k__BackingField: 0
   transportVehicles: 0
-  damageReduction: 100
+  <damageReduction>k__BackingField: 100
 --- !u!114 &7820618107573948501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,16 +536,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hangarPositions: []
-  aircraftRunway: []
-  outHangar: []
+  aircraftHangar: []
   helicopterBlade:
   - {fileID: 5465771871755309946}
   - {fileID: 4441836680995818222}
   speed: 10
-  couldFly: 0
-  couldHover: 1
-  flyDestination: {x: 0, y: 0, z: 0}
   unit: {fileID: 0}
 --- !u!65 &8690070404580468790
 BoxCollider:

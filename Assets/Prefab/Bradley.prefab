@@ -7740,7 +7740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2237535386
+  GlobalObjectIdHash: 2200626581
   InScenePlacedSourceGlobalObjectIdHash: 2196005913
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -7761,13 +7761,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: dad35f267eb73ec479895aa1ff3fc25d, type: 2}
-  characterAnimator: {fileID: 2195806660051923598}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: dad35f267eb73ec479895aa1ff3fc25d, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 2195806660051923598}
   onDeathEffect: {fileID: 0}
-  visualObject: {fileID: 71693608882420735}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 7585496020644201811}
-  newUnitPosition: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 71693608882420735}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 7585496020644201811}
+  newUnitSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 2, z: 0}
   wheels:
   - {fileID: 8585625914420395549}
@@ -7780,10 +7783,10 @@ MonoBehaviour:
   - {fileID: 3985267759965299451}
   - {fileID: 2901927382449882862}
   unitSkinnedRendererColor: []
-  unitWeapons:
+  <unitWeapons>k__BackingField:
   - unitAim: {fileID: 3236277818417109371}
     unitAimParent: 0
-    damage: 10
+    damage: 25
     firerate: 0.2
     ammoSize: 0
     reloadSpeed: 0
@@ -7792,15 +7795,14 @@ MonoBehaviour:
     currentAmmo: 0
     shootParticles: {fileID: 6527410148940859809}
     projectile: {fileID: 0}
-    projectileSpawn:
-    - {fileID: 0}
-    projectileHoming: 0
+    projectileSpawn: []
+    isProjectileHoming: 0
     projectileSpeed: 0
-    maxDistance: 50
+    maxDistance: 35
     minDistance: 0
   - unitAim: {fileID: 3236277818417109371}
-    unitAimParent: 0
-    damage: 10
+    unitAimParent: 1
+    damage: 40
     firerate: 0.5
     ammoSize: 2
     reloadSpeed: 5
@@ -7812,9 +7814,9 @@ MonoBehaviour:
     projectileSpawn:
     - {fileID: 4058201458871123106}
     - {fileID: 7525664070558927839}
-    projectileHoming: 1
-    projectileSpeed: 50
-    maxDistance: 50
+    isProjectileHoming: 1
+    projectileSpeed: 35
+    maxDistance: 35
     minDistance: 0
 --- !u!114 &3236277818417109371
 MonoBehaviour:
@@ -7829,12 +7831,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turret: {fileID: 4516159119078088169}
-  cannon: {fileID: 2303390956563888223}
+  <cannon>k__BackingField: {fileID: 2303390956563888223}
   verticalRotSpeed: 25
   mVertical: 20
   pVertical: 40
   horizontalRotSpeed: 360
-  ballisticTrajectory: 0
+  <ballisticTrajectory>k__BackingField: 0
   lowArc: 0
 --- !u!114 &-1214333479688728235
 MonoBehaviour:
@@ -7857,10 +7859,10 @@ MonoBehaviour:
   - {fileID: 4834564220335647726}
   - {fileID: 9016149411053660773}
   - {fileID: 8476851973041355531}
-  hideInside: 1
-  shootFromInside: 1
+  <hideInside>k__BackingField: 0
+  <shootFromInside>k__BackingField: 0
   transportVehicles: 0
-  damageReduction: 100
+  <damageReduction>k__BackingField: 100
 --- !u!195 &7936256840446983998
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7868,7 +7870,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4308155354113903134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1.72
   m_Speed: 5
@@ -14742,7 +14744,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 121730deb8ff78e488eb93d8fa5a0480, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -14790,7 +14792,7 @@ LODGroup:
     - renderer: {fileID: 8718446525313865674}
     - renderer: {fileID: 8361761052518925347}
     - renderer: {fileID: 4807482713512727177}
-  - screenRelativeHeight: 0
+  - screenRelativeHeight: 0.0053507374
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 6799770133114682746}

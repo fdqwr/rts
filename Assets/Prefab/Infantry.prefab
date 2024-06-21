@@ -135,20 +135,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitSettings: {fileID: 11400000, guid: f2fec4c0610b239439cfe12ad4a0a8ef, type: 2}
-  characterAnimator: {fileID: 6662604331383952432}
+  <unitSettings>k__BackingField: {fileID: 11400000, guid: f2fec4c0610b239439cfe12ad4a0a8ef, type: 2}
+  <characterAnimator>k__BackingField: {fileID: 6662604331383952432}
   onDeathEffect: {fileID: 1326348598124220017}
-  visualObject: {fileID: 6491493959202030949}
-  constructionBox: {fileID: 0}
-  targetTransform: {fileID: 243412947967586481}
-  newUnitPosition: {fileID: 0}
+  <visualObject>k__BackingField: {fileID: 6491493959202030949}
+  <constructionBox>k__BackingField: {fileID: 0}
+  <targetTransform>k__BackingField: {fileID: 243412947967586481}
+  newUnitSpawnPosition: {fileID: 0}
+  newUnitAfterSpawnPosition: {fileID: 0}
+  newUnitSpawnDoor: {fileID: 0}
+  doorOffset: 0
   wheelsAxis: {x: 0, y: 0, z: 1}
   wheels: []
   unitRendererColor: []
   unitSkinnedRendererColor:
   - {fileID: 5146349226791759470}
   - {fileID: 2425059837470906540}
-  unitWeapons:
+  <unitWeapons>k__BackingField:
   - unitAim: {fileID: 0}
     unitAimParent: 0
     damage: 5
@@ -160,11 +163,10 @@ MonoBehaviour:
     currentAmmo: 0
     shootParticles: {fileID: 8021281418743729638}
     projectile: {fileID: 0}
-    projectileSpawn:
-    - {fileID: 0}
-    projectileHoming: 0
+    projectileSpawn: []
+    isProjectileHoming: 0
     projectileSpeed: 0
-    maxDistance: 30
+    maxDistance: 25
     minDistance: 0
 --- !u!136 &4748611557791511089
 CapsuleCollider:
@@ -196,7 +198,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2158635327913910712}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
@@ -10567,7 +10569,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 12f3781713f6ac84599e0b8c0ff7f9a1, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 2
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
