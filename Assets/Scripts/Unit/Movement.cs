@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using static Codice.Client.BaseCommands.QueryParser;
 namespace rts.Unit
 {
     public class Movement : MonoBehaviour
@@ -10,6 +9,8 @@ namespace rts.Unit
         NavMeshAgent agent;
         Transform t;
         Orders orders;
+        Vector3 prevModelPosition;
+
         void Start()
         {
             t = transform;
@@ -19,57 +20,82 @@ namespace rts.Unit
             orders = GetComponent<Orders>();
         }
 
-        // Update is called once per frame
         void Update()
         {
-            Unit _u = orders.unitTargetClass;
-            if (!_u)
-                _u = orders.nearbyUnitTargetClass;
-            if (!_u)
+            if (unit.healthClass && unit.healthClass.isDestroyed)
                 return;
-            Vector3 _targetClosestPoint = _u.col.ClosestPoint(transform.position);
-            if (agent && agent.enabled && orders.unitTargetID != -1 && !orders.nearbyUnitTargetClass)
+            VisualRotation();
+            Move();
+            prevModelPosition = unit.visualObject.transform.position;
+        }
+        private void Move()
+        {
+            Unit _target = orders.targetClass;
+            if (!_target)
+                _target = orders.nearbytargetClass;
+            if (!_target)
+                return;
+            Vector3 _targetClosestPoint = _target.col.ClosestPoint(transform.position);
+            if (agent && agent.enabled && orders.targetID != -1 && !orders.nearbytargetClass)
             {
-                if (_u.unitAir)
+                if (_target.settings.IsAircraft)
                     _targetClosestPoint.y = t.position.y;
                 agent.destination = _targetClosestPoint;
-                if (unitResources && unitResources.currResDelay > 0)
+                if (unitResources && unitResources.loadingSupplyProgress > 0)
                 {
                     agent.destination = t.position;
                     return;
                 }
             }
             if (unitResources && unitResources.returnToStockpile && orders.nearTarget)
-                unitResources.GetToStockpile();
-            float _distance = Vector3.Distance(_targetClosestPoint, t.position);
-            if (orders.unitTargetClass && unit.unitSettings.unitType == Settings.UnitType.builder
-                && orders.unitTargetClass.currentBuildPoints.Value < orders.unitTargetClass.unitSettings.buildPointsNeeded
-                && orders.nearTarget)
+                unitResources.GetToSupplyCenter();
+            if (orders.targetClass && unit.settings.unitType == Settings.UnitType.builder && !_target.IsConstructionFinished && orders.nearTarget)
             {
-                orders.unitTargetClass.currentBuildPoints.Value
-                    = Mathf.Clamp(orders.unitTargetClass.currentBuildPoints.Value + Time.deltaTime, 0, orders.unitTargetClass.unitSettings.buildPointsNeeded);
-                if (orders.unitTargetClass.currentBuildPoints.Value == orders.unitTargetClass.unitSettings.buildPointsNeeded)
+                _target.currentBuildPoints.Value = Mathf.Clamp(_target.currentBuildPoints.Value + Time.deltaTime, 0, _target.settings.buildPointsNeeded);
+                if (_target.currentBuildPoints.Value == _target.settings.buildPointsNeeded)
                     orders.FinishOrderRpc(false);
             }
             else
             {
-                if (!orders.isAttackingTarget && orders.unitTargetClass && unit.unitSettings.occupyPSlots > 0 && unit.insideUnitID.Value == -1 && orders.unitTargetClass.unitCarrier)
+                if (!orders.isAttackingTarget && orders.targetClass && unit.settings.occupyPSlots > 0 && unit.insideID.Value == -1 && _target.carrier)
                 {
-                    if (orders.unitTargetClass.unitCarrier.FreeUnitSlots() == 0)
+                    if (_target.carrier.freeUnitSlots == 0)
                     {
                         orders.FinishOrderRpc(false);
                         return;
                     }
-                    if (orders.unitTargetClass.unitAir)
+                    if (_target.settings.IsAircraft)
                     {
                         Vector3 _uPos = _targetClosestPoint;
                         _uPos.y = transform.position.y;
                         if (Vector3.Distance(_uPos, t.position) < 7)
-                            orders.unitTargetClass.orders.SetTargetRpc(unit.id.Value, false, -1);
+                            _target.orders.SetTargetRpc(unit.id.Value, false, -1);
                     }
                     else if (orders.nearTarget)
-                        orders.unitTargetClass.unitCarrier.GetInsideUnit(unit);
+                        _target.carrier.GetInsideUnit(unit);
                 }
+            }
+        }
+        void VisualRotation()
+        {
+            Unit _unit = orders.targetClass;
+            if (!_unit)
+                _unit = orders.nearbytargetClass;
+            Vector3 _velocity = unit.visualObject.transform.InverseTransformDirection(unit.visualObject.transform.position - prevModelPosition) * Time.deltaTime * 5000;
+            foreach (Transform _wheel in unit.wheels)
+                _wheel.Rotate(unit.wheelsAxis * _velocity.z * Time.deltaTime * 50);
+            if (unit.settings.rotateVisualToTarget)
+            {
+                unit.animator.SetFloat("X", Mathf.Clamp(_velocity.z, -1, 1));
+                unit.animator.SetFloat("Z", Mathf.Clamp(_velocity.x, -1, 1));
+                if (_unit && !_unit.healthClass.isDestroyed && (orders.nearbytargetClass || orders.isAttackingTarget))
+                {
+                    Vector3 targetDirection = _unit.targetTransform.position - unit.visualObject.transform.position;
+                    unit.visualObject.transform.rotation = Quaternion.LookRotation(targetDirection);
+                    unit.visualObject.transform.eulerAngles = new Vector3(0, unit.visualObject.transform.eulerAngles.y, 0);
+                }
+                else
+                    unit.visualObject.transform.localRotation = Quaternion.Lerp(unit.visualObject.transform.localRotation, unit.defaultVisualRotation, 0.2f);
             }
         }
     }

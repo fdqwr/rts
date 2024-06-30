@@ -406,8 +406,9 @@ GameObject:
   - component: {fileID: 5683518079961746731}
   - component: {fileID: 2263863520973137638}
   - component: {fileID: 7193850104528335306}
+  - component: {fileID: -2958943660482682773}
   m_Layer: 6
-  m_Name: Resource Center
+  m_Name: SupplyCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3099065373
+  GlobalObjectIdHash: 944255437
   InScenePlacedSourceGlobalObjectIdHash: 2237938635
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -465,9 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 2d7fd48482bb0a6458e7d9d17f8ddc68, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 2d7fd48482bb0a6458e7d9d17f8ddc68, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 4889271243932730298}
   <constructionBox>k__BackingField: {fileID: 6178976925585119542}
   <targetTransform>k__BackingField: {fileID: 8766063227380513354}
@@ -475,12 +476,13 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 7794946448511802251}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 6402660969218777711}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!114 &336631887054328976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,7 +498,6 @@ MonoBehaviour:
   <resourceStart>k__BackingField: 0
   <resourceCarryCapacity>k__BackingField: 0
   resourceCarryDelay: 0
-  <isResourceStockpile>k__BackingField: 0
   resVisual: []
 --- !u!65 &5683518079961746731
 BoxCollider:
@@ -566,6 +567,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-2958943660482682773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441061098195755839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1001 &5700228485976014571
 PrefabInstance:
   m_ObjectHideFlags: 0

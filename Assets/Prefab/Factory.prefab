@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 2950082581316644556}
   - component: {fileID: 2671411245429733819}
   - component: {fileID: 7260471629739337312}
+  - component: {fileID: 8388312502808010097}
   m_Layer: 6
   m_Name: Factory
   m_TagString: Untagged
@@ -444,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1120847086
+  GlobalObjectIdHash: 3926202285
   InScenePlacedSourceGlobalObjectIdHash: 2279995242
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -465,9 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 959d964a31e750b47b1cab312c54e547, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 959d964a31e750b47b1cab312c54e547, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 5301593813716051396}
   <constructionBox>k__BackingField: {fileID: 4373053471046936956}
   <targetTransform>k__BackingField: {fileID: 2398620243763892608}
@@ -475,12 +476,13 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 1638181354297987269}
   newUnitSpawnDoor: {fileID: 9077532834400387384}
   doorOffset: 5.5
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 8814143952949628506}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!65 &2950082581316644556
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -549,6 +551,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &8388312502808010097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5878709245973737688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &8254696679517379123
 GameObject:
   m_ObjectHideFlags: 0

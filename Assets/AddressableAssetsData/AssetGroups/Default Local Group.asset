@@ -31,12 +31,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a035f5c8a785f641acb3835a3e40591
-    m_Address: Resource Center
+    m_Address: SupplyCenter
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a501e95e2c13c241b3de3bba4bd00c7
-    m_Address: Resources
+    m_Address: SupplyStockpile
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

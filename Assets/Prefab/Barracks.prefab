@@ -193,55 +193,55 @@ MonoBehaviour:
   - m_Vertices: 0b0000000e00000012000000
   m_SharedTextures: []
   m_Positions:
-  - {x: -8.110184, y: -0.36486864, z: 12.348154}
-  - {x: 7.938692, y: -0.36486864, z: 12.348154}
-  - {x: -8.110184, y: 7.73669, z: 12.348154}
-  - {x: 7.938692, y: 7.73669, z: 12.348154}
-  - {x: 7.938692, y: -0.36486864, z: 12.348154}
-  - {x: 7.938692, y: -0.36486864, z: -12.319952}
-  - {x: 7.938692, y: 7.73669, z: 12.348154}
-  - {x: 7.938692, y: 7.73669, z: -12.319952}
-  - {x: 7.938692, y: -0.36486864, z: -12.319952}
-  - {x: -8.110184, y: -0.36486864, z: -12.319952}
-  - {x: 7.938692, y: 7.73669, z: -12.319952}
-  - {x: -8.110184, y: 7.73669, z: -12.319952}
-  - {x: -8.110184, y: -0.36486864, z: -12.319952}
-  - {x: -8.110184, y: -0.36486864, z: 12.348154}
-  - {x: -8.110184, y: 7.73669, z: -12.319952}
-  - {x: -8.110184, y: 7.73669, z: 12.348154}
-  - {x: -8.110184, y: 7.73669, z: 12.348154}
-  - {x: 7.938692, y: 7.73669, z: 12.348154}
-  - {x: -8.110184, y: 7.73669, z: -12.319952}
-  - {x: 7.938692, y: 7.73669, z: -12.319952}
-  - {x: -8.110184, y: -0.36486864, z: -12.319952}
-  - {x: 7.938692, y: -0.36486864, z: -12.319952}
-  - {x: -8.110184, y: -0.36486864, z: 12.348154}
-  - {x: 7.938692, y: -0.36486864, z: 12.348154}
+  - {x: -10.046135, y: -0.36486864, z: 15.256304}
+  - {x: 10.02454, y: -0.36486864, z: 15.256304}
+  - {x: -10.046135, y: 7.73669, z: 15.256304}
+  - {x: 10.02454, y: 7.73669, z: 15.256304}
+  - {x: 10.02454, y: -0.36486864, z: 15.256304}
+  - {x: 10.02454, y: -0.36486864, z: -15.400587}
+  - {x: 10.02454, y: 7.73669, z: 15.256304}
+  - {x: 10.02454, y: 7.73669, z: -15.400587}
+  - {x: 10.02454, y: -0.36486864, z: -15.400587}
+  - {x: -10.046135, y: -0.36486864, z: -15.400587}
+  - {x: 10.02454, y: 7.73669, z: -15.400587}
+  - {x: -10.046135, y: 7.73669, z: -15.400587}
+  - {x: -10.046135, y: -0.36486864, z: -15.400587}
+  - {x: -10.046135, y: -0.36486864, z: 15.256304}
+  - {x: -10.046135, y: 7.73669, z: -15.400587}
+  - {x: -10.046135, y: 7.73669, z: 15.256304}
+  - {x: -10.046135, y: 7.73669, z: 15.256304}
+  - {x: 10.02454, y: 7.73669, z: 15.256304}
+  - {x: -10.046135, y: 7.73669, z: -15.400587}
+  - {x: 10.02454, y: 7.73669, z: -15.400587}
+  - {x: -10.046135, y: -0.36486864, z: -15.400587}
+  - {x: 10.02454, y: -0.36486864, z: -15.400587}
+  - {x: -10.046135, y: -0.36486864, z: 15.256304}
+  - {x: 10.02454, y: -0.36486864, z: 15.256304}
   m_Textures0:
-  - {x: 8.110184, y: -0.36486864}
-  - {x: -7.938692, y: -0.36486864}
-  - {x: 8.110184, y: 7.73669}
-  - {x: -7.938692, y: 7.73669}
-  - {x: 12.348154, y: -0.36486864}
-  - {x: -12.319952, y: -0.36486864}
-  - {x: 12.348154, y: 7.73669}
-  - {x: -12.319952, y: 7.73669}
-  - {x: 7.938692, y: -0.36486864}
-  - {x: -8.110184, y: -0.36486864}
-  - {x: 7.938692, y: 7.73669}
-  - {x: -8.110184, y: 7.73669}
-  - {x: 12.319952, y: -0.36486864}
-  - {x: -12.348154, y: -0.36486864}
-  - {x: 12.319952, y: 7.73669}
-  - {x: -12.348154, y: 7.73669}
-  - {x: -8.110184, y: 12.348154}
-  - {x: 7.938692, y: 12.348154}
-  - {x: -8.110184, y: -12.319952}
-  - {x: 7.938692, y: -12.319952}
-  - {x: 8.110184, y: -12.319952}
-  - {x: -7.938692, y: -12.319952}
-  - {x: 8.110184, y: 12.348154}
-  - {x: -7.938692, y: 12.348154}
+  - {x: 10.046135, y: -0.36486864}
+  - {x: -10.02454, y: -0.36486864}
+  - {x: 10.046135, y: 7.73669}
+  - {x: -10.02454, y: 7.73669}
+  - {x: 15.256304, y: -0.36486864}
+  - {x: -15.400587, y: -0.36486864}
+  - {x: 15.256304, y: 7.73669}
+  - {x: -15.400587, y: 7.73669}
+  - {x: 10.02454, y: -0.36486864}
+  - {x: -10.046135, y: -0.36486864}
+  - {x: 10.02454, y: 7.73669}
+  - {x: -10.046135, y: 7.73669}
+  - {x: 15.400587, y: -0.36486864}
+  - {x: -15.256304, y: -0.36486864}
+  - {x: 15.400587, y: 7.73669}
+  - {x: -15.256304, y: 7.73669}
+  - {x: -10.046135, y: 15.256304}
+  - {x: 10.02454, y: 15.256304}
+  - {x: -10.046135, y: -15.400587}
+  - {x: 10.02454, y: -15.400587}
+  - {x: 10.046135, y: -15.400587}
+  - {x: -10.02454, y: -15.400587}
+  - {x: 10.046135, y: 15.256304}
+  - {x: -10.02454, y: 15.256304}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 8935
+  m_VersionIndex: 10191
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -298,9 +298,9 @@ MonoBehaviour:
   m_Shape:
     rid: 8901509373129392212
   m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_UnmodifiedMeshVersion: 8935
-  m_Size: {x: -16.048876, y: 8.101559, z: -24.668106}
-  m_LocalCenter: {x: -0.08574581, y: 3.6859107, z: 0.014101028}
+  m_UnmodifiedMeshVersion: 10191
+  m_Size: {x: -20.070675, y: 8.101559, z: -30.65689}
+  m_LocalCenter: {x: -0.010797501, y: 3.6859107, z: -0.07214165}
   references:
     version: 2
     RefIds:
@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 6701884316481738013}
   - component: {fileID: 751520921406212004}
   - component: {fileID: 6714032373249679707}
+  - component: {fileID: -2106261215780117867}
   m_Layer: 6
   m_Name: Barracks
   m_TagString: Untagged
@@ -413,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3466448279
+  GlobalObjectIdHash: 2279995242
   InScenePlacedSourceGlobalObjectIdHash: 2237938635
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -434,9 +435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 679ff0e5cacb1914894c59f893c4e82e, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 679ff0e5cacb1914894c59f893c4e82e, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 2836287224461332981}
   <constructionBox>k__BackingField: {fileID: 592352473081082635}
   <targetTransform>k__BackingField: {fileID: 4413302854375158428}
@@ -444,12 +445,13 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 8935230889890427246}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 4349483574530977824}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!65 &6701884316481738013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -518,6 +520,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-2106261215780117867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281806558187486390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &1355270191200648685
 GameObject:
   m_ObjectHideFlags: 0

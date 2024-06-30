@@ -1,26 +1,30 @@
+using UnityEditor;
 using UnityEngine;
-
-public class MapSettings : MonoBehaviour
+namespace rts.GameLogic
 {
-    public static MapSettings i;
-    public float minimapScale = 1;
-    [SerializeField] public Transform[] playerSpawn;
-    public Camera cam;
-    public Spawner[] unitSpawner;
-    private void Awake()
+    [CreateAssetMenu(fileName = "MapSettings", menuName = "Scriptable Objects/MapSettings")]
+    public class MapSettings : ScriptableObject
     {
-        i = this;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        foreach (Transform _t in playerSpawn) {
-            Gizmos.DrawSphere(_t.position+Vector3.up, 1);
-        }
-        Gizmos.color = Color.red;
-        foreach (Spawner _unitSpawner in unitSpawner)
+        [field: SerializeField] public Map[] maps { get; private set; }
+        [System.Serializable]
+        public struct Map
         {
-            Gizmos.DrawSphere(_unitSpawner.transform.position+Vector3.up, 1);
+            [field: SerializeField] public string scene { get; private set; }
+            [field: SerializeField] public float minimapScale { get; private set; }
+            [field: SerializeField] public PlayerSpawn[] playerSpawn { get; private set; }
+            [field: SerializeField] public SupplySpawn[] supplySpawn { get; private set; }
+        }
+        [System.Serializable]
+        public struct PlayerSpawn
+        {
+            [field: SerializeField] public Vector3 position { get; private set; }
+            [field: SerializeField] public Quaternion rotation { get; private set; }
+        }
+        [System.Serializable]
+        public struct SupplySpawn
+        {
+            [field: SerializeField] public Vector3 position { get; private set; }
+            [field: SerializeField] public Quaternion rotation { get; private set; }
         }
     }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using rts.Unit;
+using rts.GameLogic;
 public class Projectile : MonoBehaviour
 {
     Rigidbody rb;
@@ -14,6 +15,7 @@ public class Projectile : MonoBehaviour
     float time;
     bool exploded;
     Vector3 explodePosition;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,7 +23,7 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (unit && unit.isDestroyed)
+        if (unit && unit.healthClass.isDestroyed)
             target = null;
         if (exploded)
             transform.position = explodePosition;
@@ -38,6 +40,7 @@ public class Projectile : MonoBehaviour
                 transform.position += transform.forward * speed * Time.fixedDeltaTime;
         }
     }
+
     void Update()
     {
         time += Time.deltaTime;
@@ -47,12 +50,14 @@ public class Projectile : MonoBehaviour
             transform.forward = rb.linearVelocity;
 
     }
+
     private void OnTriggerEnter(Collider _c)
     {
         if ((target && _c.transform != target) || _c.GetComponent<Projectile>())
             return;
         Explode(_c);
     }
+
     public void Setup(Transform _target, Unit _unit, float _damage, float _speed)
     {
         target = _target;
@@ -60,6 +65,7 @@ public class Projectile : MonoBehaviour
         damage = _damage;
         speed = _speed;
     }
+
     void Explode(Collider _c)
     {
         exploded = true;

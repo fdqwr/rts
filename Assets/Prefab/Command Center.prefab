@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 6896261554645258898}
   - component: {fileID: 4016763603080704685}
   - component: {fileID: 3352935103631227181}
+  - component: {fileID: -4751980553685528996}
   m_Layer: 6
   m_Name: Command Center
   m_TagString: Untagged
@@ -475,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 64724539
+  GlobalObjectIdHash: 2237938635
   InScenePlacedSourceGlobalObjectIdHash: 2237938635
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -496,9 +497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: b462a7bb9b977d644abc4981ba327fb9, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: b462a7bb9b977d644abc4981ba327fb9, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 2973614708361252430}
   <constructionBox>k__BackingField: {fileID: 7682847675682694913}
   <targetTransform>k__BackingField: {fileID: 5920889136126093522}
@@ -506,12 +507,13 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 3577214457926189436}
   newUnitSpawnDoor: {fileID: 2102773837583788722}
   doorOffset: 4.5
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 1911017829888665040}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!208 &6896261554645258898
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -580,6 +582,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-4751980553685528996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211537218578410653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1001 &2703583658521064223
 PrefabInstance:
   m_ObjectHideFlags: 0

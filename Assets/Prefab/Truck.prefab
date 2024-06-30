@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 109365278163657377}
   - component: {fileID: -5113321028638106096}
   - component: {fileID: 3760131300137967732}
+  - component: {fileID: -5228505062303201314}
   m_Layer: 6
   m_Name: Truck
   m_TagString: Untagged
@@ -136,9 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 130ee3a8f9666834abcf125d2c86ae85, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 130ee3a8f9666834abcf125d2c86ae85, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 73155820251676088}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 6408930477126121939}
@@ -146,12 +147,13 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 2276154506521857540}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!114 &-4414438377097225051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +169,6 @@ MonoBehaviour:
   <resourceStart>k__BackingField: 0
   <resourceCarryCapacity>k__BackingField: 100
   resourceCarryDelay: 3
-  <isResourceStockpile>k__BackingField: 0
   resVisual: []
 --- !u!195 &2087704908948435958
 NavMeshAgent:
@@ -270,6 +271,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-5228505062303201314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8747205842680143305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1001 &600970889911161472
 PrefabInstance:
   m_ObjectHideFlags: 0

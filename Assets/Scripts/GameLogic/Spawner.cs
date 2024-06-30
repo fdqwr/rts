@@ -1,26 +1,36 @@
 using UnityEngine;
-public class Spawner : MonoBehaviour
+using Zenject;
+namespace rts.GameLogic
 {
-    [SerializeField] Transform newUnitPosition;
-    [SerializeField] int team = 0;
-    [SerializeField] int spawnType = 2;
-    [SerializeField] bool spawnOnStart;
-    [SerializeField] bool spawnRepeatadly;
-    [SerializeField] float spawnSpeed = 3;
-    float currSpawnTime = 0;
-    public void OnSpawn()
+    public class Spawner : MonoBehaviour
     {
-        if(spawnOnStart && GameData.i.IsServer)
-            StartCoroutine(GameData.i.SpawnUnit(99999, team, -1, newUnitPosition.position, newUnitPosition.rotation, spawnType,true));
-    }
-
-    void Update()
-    {
-        currSpawnTime += Time.deltaTime;
-        if (spawnRepeatadly && GameData.i.IsServer && currSpawnTime > spawnSpeed)
+        [SerializeField] Transform newUnitPosition;
+        [SerializeField] int team = 0;
+        [SerializeField] int spawnType = 2;
+        [SerializeField] bool spawnOnStart;
+        [SerializeField] bool spawnRepeatadly;
+        [SerializeField] float spawnSpeed = 3;
+        float spawnProgress = 0;
+        GameManager gameManager;
+        public void Start()
         {
-            currSpawnTime = 0;
-            StartCoroutine(GameData.i.SpawnUnit(99999, team, -1, newUnitPosition.position, newUnitPosition.rotation, spawnType,true));
+            gameManager = (GameManager)FindFirstObjectByType(typeof(GameManager));
+        }
+
+        public void OnSpawn()
+        {
+            if (spawnOnStart && gameManager.IsServer)
+                StartCoroutine(gameManager.SpawnUnit(99999, team, -1, newUnitPosition.position, newUnitPosition.rotation, spawnType, true));
+        }
+
+        void Update()
+        {
+            spawnProgress += Time.deltaTime;
+            if (spawnRepeatadly && gameManager.IsServer && spawnProgress > spawnSpeed)
+            {
+                spawnProgress = 0;
+                StartCoroutine(gameManager.SpawnUnit(99999, team, -1, newUnitPosition.position, newUnitPosition.rotation, spawnType, true));
+            }
         }
     }
 }

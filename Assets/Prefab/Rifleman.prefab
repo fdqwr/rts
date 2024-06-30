@@ -78,8 +78,9 @@ GameObject:
   - component: {fileID: 5717312925465293233}
   - component: {fileID: 8304007720238161966}
   - component: {fileID: 8115763760343299848}
+  - component: {fileID: -8083755856007103835}
   m_Layer: 6
-  m_Name: Infantry
+  m_Name: Rifleman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,18 +136,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: f2fec4c0610b239439cfe12ad4a0a8ef, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 6662604331383952432}
-  onDeathEffect: {fileID: 1326348598124220017}
+  <settings>k__BackingField: {fileID: 11400000, guid: f2fec4c0610b239439cfe12ad4a0a8ef, type: 2}
+  <animator>k__BackingField: {fileID: 6662604331383952432}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 6491493959202030949}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 243412947967586481}
   newUnitSpawnPosition: {fileID: 0}
-  newUnitAfterSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor: []
   unitSkinnedRendererColor:
   - {fileID: 5146349226791759470}
@@ -156,11 +157,8 @@ MonoBehaviour:
     unitAimParent: 0
     damage: 5
     firerate: 0.1
-    ammoSize: 0
+    maxAmmo: 0
     reloadSpeed: 0
-    cFirerateReload: 0
-    cReloadSpeed: 0
-    currentAmmo: 0
     shootParticles: {fileID: 8021281418743729638}
     projectile: {fileID: 0}
     projectileSpawn: []
@@ -168,6 +166,10 @@ MonoBehaviour:
     projectileSpeed: 0
     maxDistance: 25
     minDistance: 0
+    firerateProgress: 0
+    reloadProgress: 0
+    currentAmmo: 0
+  menuUI: {fileID: 0}
 --- !u!136 &4748611557791511089
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -271,6 +273,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-8083755856007103835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2158635327913910712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &3268681330730784774
 GameObject:
   m_ObjectHideFlags: 0

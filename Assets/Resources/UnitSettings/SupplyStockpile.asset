@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70dd660dcff6f5f40a1901b67f2d0615, type: 3}
-  m_Name: Infantry
+  m_Name: SupplyStockpile
   m_EditorClassIdentifier: 
   <unitButtons>k__BackingField:
   - buttonType: 0
@@ -42,23 +42,23 @@ MonoBehaviour:
   - buttonType: 0
     iD: 0
   <asset>k__BackingField:
-    m_AssetGUID: c4451f8facaed9d43bec745813e7a30c
+    m_AssetGUID: 2a501e95e2c13c241b3de3bba4bd00c7
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  <unitImage>k__BackingField: {fileID: 21300000, guid: 568b8b1c0a09d7746a24cf88f63a8883, type: 3}
-  <occupyPSlots>k__BackingField: 1
-  <type>k__BackingField: 9
+  <unitImage>k__BackingField: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  <occupyPSlots>k__BackingField: 0
+  <id>k__BackingField: 20
   <cost>k__BackingField: 1
-  <maxHealth>k__BackingField: 100
+  <maxHealth>k__BackingField: 9999999
   <stoppingDistance>k__BackingField: 1
-  <buildPointsNeeded>k__BackingField: 5
+  <buildPointsNeeded>k__BackingField: 100
   <constructionOffset>k__BackingField: 0
   <spawnSpeedModifier>k__BackingField: 1
-  <rotateVisualToTarget>k__BackingField: 1
-  <animDeath>k__BackingField: 1
-  <unitType>k__BackingField: 1
+  <rotateVisualToTarget>k__BackingField: 0
+  <animDeath>k__BackingField: 0
+  <unitType>k__BackingField: 13
   <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
   <size>k__BackingField: {x: 1, y: 1, z: 1}
   <spawnOnBuild>k__BackingField: 

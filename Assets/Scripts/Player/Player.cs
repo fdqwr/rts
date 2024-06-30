@@ -12,18 +12,41 @@ namespace rts.Player
 {
     using rts.Unit;
     using rts.UI;
+    using rts.GameLogic;
+    using Zenject;
+
     public class Player : NetworkBehaviour
     {
-        [SerializeField] Camera cam;
+        [field: SerializeField] public Camera cam { get; private set; }
         [SerializeField] Texture2D selectTexture;
         [SerializeField] Material buildingMaterial;
         [SerializeField] float camSpeed = 10;
         [SerializeField] float zoomSpeed = 30;
         public bool isBot { get; private set; } = false;
+        NetworkVariable<int> buildSelected = new NetworkVariable<int>(1);
+        public NetworkVariable<int> team { get; private set; } = new NetworkVariable<int>(0);
+        NetworkVariable<float> buildCost = new NetworkVariable<float>(0);
+        public NetworkVariable<float> money { get; private set; } = new NetworkVariable<float>(0);
+        public NetworkVariable<int> playerID { get; private set; } = new NetworkVariable<int>(0);
+        public Vector3 spawnPosition { get; private set; }
+        Vector2 selectionStart;
+        Vector2 selectionEnd;
+        Transform p1;
+        Transform p2;
+        int obstructionsInBuilding = 0;
+        SetupDataStruct setupData;
+        List<int[]> hotKey = new List<int[]>();
+        Transform buildingSelected;
+        protected MenuUI menuUI { get; private set; }
+        protected GameManager gameManager { get; private set; }
+        protected GameData gameData { get; private set; }
+        string[] hotkeyButtonNames = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+        public static int localPlayerID { get; private set; }
+        public static Player localPlayerClass { get; private set; }
         public List<int> selectedUnitList { get; private set; } = new List<int>();
         public List<Unit> playerUnits { get; private set; } = new List<Unit>();
         public List<Unit> commandCenters { get; private set; } = new List<Unit>();
-        public List<Unit> resourceCenters { get; private set; } = new List<Unit>();
+        public List<Unit> supplyCenters { get; private set; } = new List<Unit>();
         public List<Unit> airfields { get; private set; } = new List<Unit>();
         public List<Unit> barracks { get; private set; } = new List<Unit>();
         public List<Unit> factories { get; private set; } = new List<Unit>();
@@ -36,28 +59,17 @@ namespace rts.Player
         public List<Unit> airUnits { get; private set; } = new List<Unit>();
         public List<Unit> builders { get; private set; } = new List<Unit>();
         public List<Unit> supplyTracks { get; private set; } = new List<Unit>();
-        NetworkVariable<int> buildSelected = new NetworkVariable<int>(1);
-        NetworkVariable<int> team = new NetworkVariable<int>(0);
-        NetworkVariable<float> buildCost = new NetworkVariable<float>(0);
-        public NetworkVariable<float> money { get; private set; } = new NetworkVariable<float>(0);
-        public NetworkVariable<int> playerID { get; private set; } = new NetworkVariable<int>(0);
-        public Vector3 spawnPosition { get; private set; }
-        Vector2 selectionStart;
-        Vector2 selectionEnd;
-        Transform p1;
-        Transform p2;
-        int obstructionsInBuilding = 0;
-        SetupDataStruct setupData;
-        List<int[]> hotKey = new List<int[]>();
-        GameObject buildingSelected;
-        public static int localPlayer;
-        public int GetBuildID => buildSelected.Value;
-        public int GetTeam => team.Value;
-        public Camera PlayerCamera => cam;
         struct SetupDataStruct
         {
             public int team;
             public int playerID;
+        }
+        [Inject]
+        public void Construct(GameManager _gameManager, GameData _gameData, MenuUI _menuUI)
+        {
+            gameManager = _gameManager;
+            gameData = _gameData;
+            menuUI = _menuUI;
         }
         private void Awake()
         {
@@ -68,6 +80,7 @@ namespace rts.Player
             p2 = p1.parent;
             isBot = GetComponent<Bot>() != null;
         }
+
         void Update()
         {
             if (!IsOwner || isBot)
@@ -81,21 +94,25 @@ namespace rts.Player
                 int _layerMask = 1;
                 if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out RaycastHit _hit, 1000, _layerMask))
                     _sPos = _hit.point;
-                buildingSelected.transform.position = _sPos;
+                buildingSelected.position = _sPos;
             }
         }
-        public void OnSpawn(int _team, int _playerID)
+
+        public void SetData(int _team, int _playerID)
         {
             setupData = new SetupDataStruct { team = _team, playerID = _playerID };
         }
+
         public override void OnNetworkSpawn()
         {
             if (IsOwner && !isBot)
             {
-                money.OnValueChanged += OnMoneyChanged;
+                money.OnValueChanged += menuUI.OnMoneyChange;
                 cam.gameObject.SetActive(true);
                 Application.targetFrameRate = 600;
-                money.OnValueChanged += MenuUI.i.OnMoneyChange;
+                localPlayerID = playerID.Value;
+                localPlayerClass = this;
+                menuUI.SetPlayer(this);
             }
             if (IsServer)
             {
@@ -103,19 +120,10 @@ namespace rts.Player
                 team.Value = setupData.team;
                 money.Value = 10000;
             }
-            if (IsOwner && !isBot)
-            {
-                localPlayer = playerID.Value;
-                MenuUI.i.OnMoneyChange(-1, money.Value);
-            }
-            GameData.i.AddPlayer(playerID.Value, this);
-            spawnPosition = MapSettings.i.playerSpawn[playerID.Value].position;
-            if (IsOwner && !isBot)
-            {
-                GameEvents.i.JoinGame();
-                MenuUI.i.SetPlayer(this);
-            }
+            gameData.AddPlayer(playerID.Value, this);
+            spawnPosition = gameManager.mapSettings.maps[menuUI.map.Value].playerSpawn[playerID.Value].position;
         }
+
         void OnBuildIDChange(int _prev, int _curr)
         {
             if (!IsOwner || isBot)
@@ -123,64 +131,65 @@ namespace rts.Player
             if (buildingSelected)
             {
                 obstructionsInBuilding = 0;
-                Destroy(buildingSelected);
+                Destroy(buildingSelected.gameObject);
             }
             if (_curr != -1)
                 StartCoroutine(BuildPreview(_curr));
             else
                 obstructionsInBuilding = 0;
         }
+
         IEnumerator BuildPreview(int _id)
         {
             Vector3 _previewPosition = new Vector3(0, -10000, 0);
             int _layerMask = 1;
             if (Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out RaycastHit _hit, 1000, _layerMask))
                 _previewPosition = _hit.point;
-            AsyncOperationHandle<GameObject> _handle = Addressables.InstantiateAsync(GameData.i.unitSettings[_id].asset, _previewPosition, cam.transform.parent.parent.rotation, transform);
+            AsyncOperationHandle<GameObject> _handle = Addressables.InstantiateAsync(gameData.unitSettings[_id].asset, _previewPosition, p2.rotation, transform);
             yield return _handle;
-            if (_handle.Result != null)
-                buildingSelected = _handle.Result;
+            buildingSelected = _handle.Result.transform;
+            Destroy(buildingSelected.GetComponent<Unit>());
             Destroy(buildingSelected.GetComponent<Turret>());
-            Destroy(buildingSelected.GetComponent<rts.Unit.Supply>());
+            Destroy(buildingSelected.GetComponent<Supply>());
             Destroy(buildingSelected.GetComponent<Aircraft>());
             Destroy(buildingSelected.GetComponent<Builder>());
             Destroy(buildingSelected.GetComponent<Carrier>());
-            Destroy(buildingSelected.GetComponent<Unit>());
             Destroy(buildingSelected.GetComponent<NetworkObject>());
             Destroy(buildingSelected.GetComponent<NetworkTransform>());
             Destroy(buildingSelected.GetComponent<NavMeshObstacle>());
-            buildingSelected.transform.Rotate(0, 180, 0);
-            foreach (MeshRenderer _mR in buildingSelected.GetComponentsInChildren<MeshRenderer>())
+            buildingSelected.Rotate(0, 180, 0);
+            foreach (MeshRenderer _meshRenderer in buildingSelected.GetComponentsInChildren<MeshRenderer>())
             {
-                _mR.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-                _mR.material = buildingMaterial;
-                foreach (Material _mat in _mR.materials)
+                _meshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                _meshRenderer.material = buildingMaterial;
+                foreach (Material _mat in _meshRenderer.materials)
                     _mat.color = new Color(1, 1, 1, 0.5f);
             }
         }
+
         void Hotkeys()
         {
             for (int i = 0; i < 9; i++)
             {
                 if (Input.GetKey(KeyCode.LeftControl))
                 {
-                    if (Input.GetKeyDown((i + 1).ToString()))
-                    {
-                        foreach (int _i in hotKey[i])
-                            GameData.i.GetUnit(_i).unitUI.SetHotkeyUI(0);
-                        hotKey[i] = selectedUnitList.ToArray();
-                        foreach (int _i in hotKey[i])
-                            GameData.i.GetUnit(_i).unitUI.SetHotkeyUI(i + 1);
-                    }
+                    if (!Input.GetKeyDown(hotkeyButtonNames[i]))
+                        continue;
+                    foreach (int _i in hotKey[i])
+                        gameData.GetUnit(_i).unitUI.SetHotkeyUI(0);
+                    hotKey[i] = selectedUnitList.ToArray();
+                    foreach (int _i in hotKey[i])
+                        gameData.GetUnit(_i).unitUI.SetHotkeyUI(_i + 1);
                 }
-                else if (Input.GetKeyDown((i + 1).ToString()) && hotKey[i].Length > 0)
+                else if (Input.GetKeyDown(hotkeyButtonNames[i]) && hotKey[i].Length > 0)
                 {
                     foreach (int _i in selectedUnitList)
-                        GameData.i.GetUnit(_i).UIActive(false);
+                        gameData.GetUnit(_i).UIActive(false);
                     SetSelectedUnitsRpc(hotKey[i], false);
                 }
             }
         }
+
         void CameraMove()
         {
             Vector3 _move = new Vector3(Input.GetAxis("Horizontal") * camSpeed, 0, Input.GetAxis("Vertical") * camSpeed);
@@ -197,7 +206,7 @@ namespace rts.Player
             if (Input.GetMouseButton(2))
             {
                 if (buildingSelected)
-                    buildingSelected.transform.RotateAround(buildingSelected.transform.position, Vector3.up, Input.GetAxis("Mouse X") * -500 * Time.deltaTime);
+                    buildingSelected.RotateAround(buildingSelected.position, Vector3.up, Input.GetAxis("Mouse X") * -500 * Time.deltaTime);
                 else p2.RotateAround(p1.position, Vector3.up, Input.GetAxis("Mouse X") * 200 * Time.deltaTime);
             }
         }
@@ -210,7 +219,8 @@ namespace rts.Player
                 selectionEnd = Input.mousePosition;
             if (Input.GetMouseButtonUp(0))
             {
-                if (Mathf.Max(selectionStart.x, selectionEnd.x) - Mathf.Min(selectionStart.x, selectionEnd.x) < 40 && Mathf.Max(selectionStart.y, selectionEnd.y) - Mathf.Min(selectionStart.y, selectionEnd.y) < 40)
+                if (Mathf.Max(selectionStart.x, selectionEnd.x) - Mathf.Min(selectionStart.x, selectionEnd.x) < 40 
+                    && Mathf.Max(selectionStart.y, selectionEnd.y) - Mathf.Min(selectionStart.y, selectionEnd.y) < 40)
                     Select();
                 else if (EventSystem.current.currentSelectedGameObject == null)
                     ReleaseSelectionBox();
@@ -219,12 +229,13 @@ namespace rts.Player
             if (Input.GetMouseButtonDown(1))
             {
                 foreach (int _unit in selectedUnitList)
-                    GameData.i.GetUnit(_unit).UIActive(false);
+                    gameData.GetUnit(_unit).UIActive(false);
                 SetSelectedUnitsRpc(new int[0], false);
             }
             if (buildingSelected && Input.GetMouseButtonUp(2))
                 Select();
         }
+
         void Select()
         {
             if (obstructionsInBuilding > 0)
@@ -239,13 +250,13 @@ namespace rts.Player
             {
                 foreach (int _unit in selectedUnitList)
                     if (buildingSelected)
-                        SetTargetPositionServerRpc(buildingSelected.transform.position, buildingSelected.transform.rotation, Input.GetKey(KeyCode.LeftControl), Input.GetKey(KeyCode.LeftShift));
-                    else SetTargetPositionServerRpc(_hit.point, cam.transform.parent.parent.rotation, Input.GetKey(KeyCode.LeftControl), Input.GetKey(KeyCode.LeftShift));
+                        SetTargetPositionServerRpc(buildingSelected.position, buildingSelected.rotation, Input.GetKey(KeyCode.LeftControl), Input.GetKey(KeyCode.LeftShift));
+                    else SetTargetPositionServerRpc(_hit.point, p2.rotation, Input.GetKey(KeyCode.LeftControl), Input.GetKey(KeyCode.LeftShift));
                 return;
             }
             if (selectedUnitList.ToList().Count > 0 && !Input.GetKey(KeyCode.LeftShift))
             {
-                if (sUnit.unitResources && sUnit.unitResources.currentResource.Value > 0 && sUnit.team.Value == 0)
+                if (sUnit.supply && sUnit.supply.supplyResource.Value > 0 && sUnit.team.Value == 0)
                     SetTargetUnitServerRpc(sUnit.id.Value, Input.GetKey(KeyCode.LeftControl), Input.GetKey(KeyCode.LeftShift));
                 else if (!sUnit.IsInvulnerable)
                     SetTargetUnitServerRpc(sUnit.id.Value, (team.Value != sUnit.team.Value || Input.GetKey(KeyCode.LeftControl)), Input.GetKey(KeyCode.LeftShift));
@@ -256,6 +267,7 @@ namespace rts.Player
                 SetSelectedUnitsRpc(_unSel, Input.GetKey(KeyCode.LeftShift));
             }
         }
+
         void ReleaseSelectionBox()
         {
             Vector2 _min = selectionStart;
@@ -272,10 +284,11 @@ namespace rts.Player
             {
                 if (!Input.GetKey(KeyCode.LeftShift))
                     foreach (int _i in selectedUnitList)
-                        GameData.i.GetUnit(_i).UIActive(false);
+                        gameData.GetUnit(_i).UIActive(false);
                 SetSelectedUnitsRpc(_selectedUnitList.ToArray(), Input.GetKey(KeyCode.LeftShift));
             }
         }
+
         public void RemoveUnit(int _id)
         {
             if (!selectedUnitList.Contains(_id))
@@ -283,19 +296,20 @@ namespace rts.Player
             selectedUnitList.Remove(_id);
             SetSelectedUnitsClientRRpc(selectedUnitList.ToArray(), false);
         }
+
         [Rpc(SendTo.Server)]
         public void SetSelectedUnitsRpc(int[] _units, bool _combine)
         {
             if (!_combine)
                 selectedUnitList = new List<int>();
             foreach (int _u in _units)
-                if (team.Value == GameData.i.GetUnit(_u).team.Value && !selectedUnitList.Contains(_u))
+                if (team.Value == gameData.GetUnit(_u).team.Value && !selectedUnitList.Contains(_u))
                     selectedUnitList.Add(_u);
             buildSelected.Value = -1;
             buildCost.Value = -1;
             if (IsOwner && !isBot)
                 foreach (int _u in _units)
-                    GameData.i.GetUnit(_u).UIActive(true);
+                    gameData.GetUnit(_u).UIActive(true);
             SetSelectedUnitsClientRRpc(selectedUnitList.ToArray(), _combine);
         }
 
@@ -308,20 +322,22 @@ namespace rts.Player
             if (buildSelected.Value > -1)
                 foreach (int _unit in selectedUnitList)
                 {
-                    Unit _u = GameData.i.GetUnit(_unit);
-                    _u.unitBuilder.BuildFoundation(_pos, _rot, buildSelected.Value, buildCost.Value);
+                    Unit _u = gameData.GetUnit(_unit);
+                    _u.builder.BuildFoundation(_pos, _rot, buildSelected.Value, buildCost.Value);
                     if (!_queue)
                         buildSelected.Value = -1;
                 }
             else
                 SetTargetPositionClientRpc(selectedUnitList.ToArray(), _pos, _attackTarget, _queueInt);
         }
+
         [Rpc(SendTo.Everyone)]
         public void SetTargetPositionClientRpc(int[] _units, Vector3 _pos, bool _attackTarget, int _queueInt)
         {
             for (int _i = 0; _i < _units.Length; _i++)
-                GameData.i.GetUnit(_units[_i]).orders.SetTargetPos(_pos, _attackTarget, _queueInt);
+                gameData.GetUnit(_units[_i]).orders.SetTargetPos(_pos, _attackTarget, _queueInt);
         }
+
         [Rpc(SendTo.Server)]
         void SetTargetUnitServerRpc(int _id, bool _attackTarget, bool _queue)
         {
@@ -330,27 +346,32 @@ namespace rts.Player
                 _queueInt = 1;
             SetTargetUnitClientRpc(selectedUnitList.ToArray(), _id, _attackTarget, _queueInt);
         }
+
         [Rpc(SendTo.Everyone)]
         void SetTargetUnitClientRpc(int[] _units, int _id, bool _attackTarget, int _queueInt)
         {
             for (int _i = 0; _i < _units.Length; _i++)
-                GameData.i.GetUnit(_units[_i]).orders.SetTarget(_id, _attackTarget, _queueInt);
+                gameData.GetUnit(_units[_i]).orders.SetTarget(_id, _attackTarget, _queueInt);
         }
+
         [Rpc(SendTo.Server)]
         public void PressUnitButtonRpc(int _button)
         {
-            GameData.i.PressUnitButton(_button, playerID.Value);
+            gameManager.PressUnitButton(_button, playerID.Value);
         }
+
         [Rpc(SendTo.Server)]
         public void PressUnitQueueButtonRpc(int _button)
         {
-            GameData.i.PressUnitQueueButton(_button, playerID.Value);
+            gameManager.PressUnitQueueButton(_button, playerID.Value);
         }
+
         public void SetBuildIDRpc(int _id, float _cost)
         {
             buildSelected.Value = _id;
             buildCost.Value = _cost;
         }
+
         [Rpc(SendTo.Owner)]
         void SetSelectedUnitsClientRRpc(int[] _units, bool _combine)
         {
@@ -363,34 +384,33 @@ namespace rts.Player
                 else selectedUnitList.Concat(_units);
                 if (IsOwner && !isBot)
                     foreach (int _u in selectedUnitList)
-                        GameData.i.GetUnit(_u).UIActive(true);
+                        gameData.GetUnit(_u).UIActive(true);
             }
             UpdateUI();
         }
+
         public void UpdateUI()
         {
             if (isBot)
                 return;
             if (IsOwner)
                 foreach (int _u in selectedUnitList)
-                    GameData.i.GetUnit(_u).UIActive(true);
+                    gameData.GetUnit(_u).UIActive(true);
             if (selectedUnitList.Count > 0)
-                GameEvents.i.UnitSelection(GameData.i.GetUnit(selectedUnitList[0]).unitSettings.type);
-            else GameEvents.i.UnitSelection(-1);
+                menuUI.UpdateUnitSelectionUI(gameData.GetUnit(selectedUnitList[0]).settings.id);
+            else menuUI.UpdateUnitSelectionUI(-1);
         }
+
         public void AddMoney(float _money)
         {
             money.Value += _money;
         }
-        void OnMoneyChanged(float _prev, float _current)
-        {
-            if (IsOwner && !isBot)
-                GameEvents.i.ChangeMoney(_current);
-        }
+
         public void AddUnit(Unit _unit)
         {
             playerUnits.Add(_unit);
         }
+
         public void RemoveUnit(Unit _unit)
         {
             if (selectedUnitList.Contains(_unit.id.Value))
@@ -406,6 +426,7 @@ namespace rts.Player
             }
             playerUnits.Remove(_unit);
         }
+
         void OnObstructionChange(int _value)
         {
             if (_value == -1)
@@ -424,92 +445,82 @@ namespace rts.Player
                         _mat.color = _c;
                 }
         }
-        public void AddUnitToCategory(Unit _u)
+
+        public void AddUnitToCategory(Unit _unit)
         {
-            if (_u.unitSettings.unitType == Settings.UnitType.building)
-                buildings.Add(_u);
-            if (_u.unitSettings.unitType == Settings.UnitType.vehicle)
-                vehicles.Add(_u);
-            if (_u.unitSettings.unitType == Settings.UnitType.infantry)
-                infantry.Add(_u);
-            if (_u.unitAir)
+            if (_unit.settings.IsBuilding)
+                buildings.Add(_unit);
+            if (_unit.settings.IsVehicle)
+                vehicles.Add(_unit);
+            if (_unit.settings.IsInfantry)
+                infantry.Add(_unit);
+            if (_unit.settings.IsAircraft)
             {
-                airUnits.Add(_u);
-                if (_u.unitCarrier)
-                    airCarriers.Add(_u);
+                airUnits.Add(_unit);
+                if (_unit.carrier)
+                    airCarriers.Add(_unit);
             }
             else
             {
-                groundUnits.Add(_u);
-                airUnits.Add(_u);
-                if (_u.unitCarrier)
-                    groundCarriers.Add(_u);
+                groundUnits.Add(_unit);
+                if (_unit.carrier)
+                    groundCarriers.Add(_unit);
             }
-            if (_u.unitSettings.unitType == Settings.UnitType.builder)
-                builders.Add(_u);
-            if (_u.unitResources)
-            {
-                if (_u.unitResources.resourceCarryCapacity > 0)
-                    supplyTracks.Add(_u);
-                else
-                    resourceCenters.Add(_u);
-            }
-            if (_u.unitSettings.type == 0)
-                commandCenters.Add(_u);
-            if (_u.unitSettings.type == 1)
-                barracks.Add(_u);
-            if (_u.unitSettings.type == 2)
-                factories.Add(_u);
-            if (_u.unitSettings.type == 3)
-                airfields.Add(_u);
-            if (_u.unitSettings.type == 4)
-                resourceCenters.Add(_u);
+            if (_unit.settings.unitType == Settings.UnitType.builder)
+                builders.Add(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.truck)
+                    supplyTracks.Add(_unit);
+            else if(_unit.settings.unitType == Settings.UnitType.supplyCenter)
+                    supplyCenters.Add(_unit);
+            else if(_unit.settings.unitType == Settings.UnitType.commandCenter)
+                commandCenters.Add(_unit);
+            else if(_unit.settings.unitType == Settings.UnitType.barracks)
+                barracks.Add(_unit);
+            else if(_unit.settings.unitType == Settings.UnitType.factory)
+                factories.Add(_unit);
+            else if(_unit.settings.unitType == Settings.UnitType.airfield)
+                airfields.Add(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.supplyCenter)
+                supplyCenters.Add(_unit);
         }
-        public void RemoveUnitFromCategory(Unit _u)
+        public void RemoveUnitFromCategory(Unit _unit)
         {
-            if (_u.unitSettings.unitType == Settings.UnitType.building)
-                buildings.Remove(_u);
-            else
+            if (_unit.settings.IsBuilding)
+                buildings.Remove(_unit);
+            if (_unit.settings.IsVehicle)
+                vehicles.Remove(_unit);
+            if (_unit.settings.IsInfantry)
+                infantry.Remove(_unit);
+            if (_unit.settings.IsAircraft)
             {
-                if (_u.unitSettings.unitType == Settings.UnitType.vehicle)
-                    vehicles.Remove(_u);
-                else
-                    infantry.Remove(_u);
-            }
-            if (_u.unitAir)
-            {
-                airUnits.Remove(_u);
-                if (_u.unitCarrier)
-                    airCarriers.Remove(_u);
+                airUnits.Remove(_unit);
+                if (_unit.carrier)
+                    airCarriers.Remove(_unit);
             }
             else
             {
-                groundUnits.Remove(_u);
-                airUnits.Remove(_u);
-                if (_u.unitCarrier)
-                    groundCarriers.Remove(_u);
+                groundUnits.Remove(_unit);
+                if (_unit.carrier)
+                    groundCarriers.Remove(_unit);
             }
-            if (_u.unitSettings.unitType == Settings.UnitType.builder)
-                builders.Remove(_u);
-            if (_u.unitResources)
-            {
-                if (_u.unitResources.resourceCarryCapacity > 0)
-                    supplyTracks.Remove(_u);
-                else
-                    resourceCenters.Remove(_u);
-            }
-            if (_u.unitSettings.type == 0)
-                commandCenters.Remove(_u);
-            if (_u.unitSettings.type == 1)
-                barracks.Remove(_u);
-            if (_u.unitSettings.type == 2)
-                factories.Remove(_u);
-            if (_u.unitSettings.type == 3)
-                airfields.Remove(_u);
-            if (_u.unitSettings.type == 4)
-                resourceCenters.Remove(_u);
+            if (_unit.settings.unitType == Settings.UnitType.builder)
+                builders.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.truck)
+                supplyTracks.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.supplyCenter)
+                supplyCenters.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.commandCenter)
+                commandCenters.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.barracks)
+                barracks.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.factory)
+                factories.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.airfield)
+                airfields.Remove(_unit);
+            else if (_unit.settings.unitType == Settings.UnitType.supplyCenter)
+                supplyCenters.Remove(_unit);
         }
-        public void SetupPlayer(int _playerID, Vector3 _spawnPosition, bool _bot)
+        public void SetPlayerData(int _playerID, Vector3 _spawnPosition, bool _bot)
         {
             playerID.Value = _playerID;
             spawnPosition = _spawnPosition;
@@ -518,13 +529,13 @@ namespace rts.Player
         private void OnTriggerEnter(Collider other)
         {
             Unit _u = other.GetComponent<Unit>();
-            if (_u && _u.unitSettings.unitType == Settings.UnitType.building)
+            if (_u && _u.settings.IsBuilding)
                 OnObstructionChange(1);
         }
         private void OnTriggerExit(Collider other)
         {
             Unit _u = other.GetComponent<Unit>();
-            if (_u && _u.unitSettings.unitType == Settings.UnitType.building)
+            if (_u && _u.settings.IsBuilding)
                 OnObstructionChange(-1);
         }
         void OnGUI()

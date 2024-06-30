@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 7075650821094044856}
   - component: {fileID: 6308302847541755819}
   - component: {fileID: 6094838671561669682}
+  - component: {fileID: 7065107081115883186}
   m_Layer: 6
   m_Name: Builder
   m_TagString: Untagged
@@ -103,18 +104,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 31a2cc0d970a65841bc7374488aa0ab4, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 31a2cc0d970a65841bc7374488aa0ab4, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 7314006947385716742}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 5962414000791738320}
   newUnitSpawnPosition: {fileID: 0}
-  newUnitAfterSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: -2}
-  wheels:
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: -1}
+  <wheels>k__BackingField:
   - {fileID: 2695806225645384335}
   - {fileID: 6260838222603827186}
   - {fileID: 3911445453469543322}
@@ -123,6 +124,7 @@ MonoBehaviour:
   - {fileID: 1952661956274738817}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!195 &2185420922028020105
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -224,6 +226,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &7065107081115883186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527838305990394219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &7314006947385716742
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,52 +1,57 @@
 using UnityEngine;
 using Unity.Netcode;
-using static Codice.Client.BaseCommands.QueryParser;
+using rts.GameLogic;
+using Zenject;
 namespace rts.Unit
 {
     public class Supply : NetworkBehaviour
     {
-        [field: SerializeField] public float resourceStart { get; private set; }
-        [field: SerializeField] public float resourceCarryCapacity { get; private set; }
+        [field: SerializeField] public float supplyStart { get; private set; }
+        [field: SerializeField] public float supplyCarryCapacity { get; private set; }
 
-        [SerializeField] float resourceCarryDelay;
-        [field: SerializeField] public bool isResourceStockpile { get; private set; }
-        [SerializeField] GameObject[] resVisual;
-        public NetworkVariable<float> currentResource { get; private set; } = new NetworkVariable<float>(0);
+        [SerializeField] float supplyCarryDelay;
+        [SerializeField] GameObject[] supplyVisual;
+        public NetworkVariable<float> supplyResource { get; private set; } = new NetworkVariable<float>(0);
         public bool returnToStockpile { get; private set; }
         Supply stockpileUnit = null;
-        public float currResDelay { get; private set; }
+        public float loadingSupplyProgress { get; private set; }
         Unit unit;
         Orders orders;
-        private const int maximumResourceDistance = 100;
+        const int maximumSupplyDistance = 100;
+        GameData gameData;
+        [Inject]
+        public void Construct(GameData _gameData)
+        {
+            gameData = _gameData;
+        }
         private void Awake()
         {
             unit = GetComponent<Unit>();
             orders = GetComponent<Orders>();
-            if (resourceStart > 0)
-                currentResource.OnValueChanged += OnResourceChange;
+            if (supplyStart > 0)
+                supplyResource.OnValueChanged += OnResourceChange;
         }
-        void Start()
-        {
-            if (IsServer)
-                currentResource.Value = resourceStart;
-        }
+
         void OnResourceChange(float _prev, float _curr)
         {
-            int _amount = Mathf.RoundToInt((currentResource.Value / resourceStart) * resVisual.Length);
-            for (int i = 0; i < resVisual.Length; i++)
-                resVisual[i].SetActive(i < _amount);
+            int _amount = Mathf.RoundToInt((supplyResource.Value / supplyStart) * supplyVisual.Length);
+            for (int i = 0; i < supplyVisual.Length; i++)
+                supplyVisual[i].SetActive(i < _amount);
         }
+
         public override void OnNetworkSpawn()
         {
-            if (resourceStart > 0)
-                GameData.i.AddToSupply(this);
-            if (isResourceStockpile)
-                GameData.i.AddStockpile(unit.playerID.Value, this);
-            if (!IsServer || resourceCarryCapacity <= 0)
+            if (IsServer)
+                supplyResource.Value = supplyStart;
+            if (unit.settings.unitType == Settings.UnitType.supplyStockpile)
+                gameData.AddToSupplyStockpile(this);
+            if (unit.settings.unitType == Settings.UnitType.supplyCenter)
+                gameData.AddSupplyCenter(unit.playerID.Value, this);
+            if (!IsServer || supplyCarryCapacity <= 0)
                 return;
             Supply _resources = null;
-            float _closestDistance = maximumResourceDistance;
-            foreach (Supply _r in GameData.i.supplies)
+            float _closestDistance = maximumSupplyDistance;
+            foreach (Supply _r in gameData.supplyStockpiles)
             {
                 float _distance = Vector3.Distance(transform.position, _r.transform.position);
                 if (_distance < _closestDistance)
@@ -58,38 +63,40 @@ namespace rts.Unit
             if (_resources != null && unit.IsServer)
                 orders.SetTargetRpc(_resources.unit.id.Value, false, -1);
         }
+
         private void Update()
         {
-            currResDelay -= Time.deltaTime;
-            if (resourceCarryCapacity > 0 && unit.IsServer && orders.unitTargetClass 
-                && unit.unitResources && orders.unitTargetClass.unitResources.currentResource.Value > 0 && orders.nearTarget)
+            loadingSupplyProgress -= Time.deltaTime;
+            if (unit.IsServer && orders.targetClass && unit.settings.unitType == Settings.UnitType.truck && orders.targetClass.supply.supplyResource.Value > 0 && orders.nearTarget)
                 GetResource();
         }
-        public void GetToStockpile()
+
+        public void GetToSupplyCenter()
         {
-            currResDelay = resourceCarryDelay;
-            GameData.i.GetPlayer(unit.playerID.Value).AddMoney(currentResource.Value);
-            if (stockpileUnit.currentResource.Value > 0)
+            loadingSupplyProgress = supplyCarryDelay;
+            gameData.GetPlayer(unit.playerID.Value).AddMoney(supplyResource.Value);
+            if (stockpileUnit.supplyResource.Value > 0)
                 orders.SetTargetRpc(stockpileUnit.unit.id.Value, false, -1);
             else
                 orders.FinishOrderRpc(false);
-            currentResource.Value = 0;
+            supplyResource.Value = 0;
             returnToStockpile = false;
         }
+
         void GetResource()
         {
-            stockpileUnit = orders.unitTargetClass.unitResources;
-            float _amount = Mathf.Clamp(resourceCarryCapacity - currentResource.Value, 0, orders.unitTargetClass.unitResources.currentResource.Value);
+            stockpileUnit = orders.targetClass.supply;
+            float _amount = Mathf.Clamp(supplyCarryCapacity - supplyResource.Value, 0, orders.targetClass.supply.supplyResource.Value);
             if (_amount > 0)
-                currResDelay = resourceCarryDelay;
-            orders.unitTargetClass.unitResources.currentResource.Value -= _amount;
-            currentResource.Value += _amount;
+                loadingSupplyProgress = supplyCarryDelay;
+            orders.targetClass.supply.supplyResource.Value -= _amount;
+            supplyResource.Value += _amount;
             Supply _stockpile = null;
             float _f = 99999;
-            foreach (Supply _u in GameData.i.supplyStockpile[unit.playerID.Value])
+            foreach (Supply _u in gameData.supplyCenters[unit.playerID.Value])
             {
                 float _d = Vector3.Distance(_u.transform.position, transform.position);
-                if (_u.unit.IsBuild && _d < _f)
+                if (_u.unit.IsConstructionFinished && _d < _f)
                 {
                     _d = _f;
                     _stockpile = _u;

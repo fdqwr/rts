@@ -420,10 +420,11 @@ GameObject:
   - component: {fileID: 5554059836295938311}
   - component: {fileID: 7463910451341475743}
   - component: {fileID: 7870909781217187948}
-  - component: {fileID: 7820618107573948501}
+  - component: {fileID: 5780726606766083151}
   - component: {fileID: 8690070404580468790}
   - component: {fileID: 6634810882273075209}
   - component: {fileID: 6707664810367708167}
+  - component: {fileID: 1553490007694050791}
   m_Layer: 6
   m_Name: Helicopter
   m_TagString: Untagged
@@ -483,22 +484,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: ff1f6d891d068a344bc84d3bf9e2384e, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: ff1f6d891d068a344bc84d3bf9e2384e, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 9201058506572658566}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 5067295252493389508}
   newUnitSpawnPosition: {fileID: 0}
-  newUnitAfterSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 5508346219389590552}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
+  menuUI: {fileID: 0}
 --- !u!114 &7870909781217187948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,7 +526,7 @@ MonoBehaviour:
   <shootFromInside>k__BackingField: 0
   transportVehicles: 0
   <damageReduction>k__BackingField: 100
---- !u!114 &7820618107573948501
+--- !u!114 &5780726606766083151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,15 +535,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8323765517637177690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a7189f2f5d24cd49b136c7ec5647ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aircraftHangar: []
+  <speed>k__BackingField: 10
+  <rotationSpeed>k__BackingField: 15
+  <onTheGroundSpeed>k__BackingField: 3
+  <nearTakeOffSpeed>k__BackingField: 7
   helicopterBlade:
   - {fileID: 5465771871755309946}
   - {fileID: 4441836680995818222}
-  speed: 10
-  unit: {fileID: 0}
 --- !u!65 &8690070404580468790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -621,6 +624,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &1553490007694050791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8323765517637177690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &9077559579065679052
 GameObject:
   m_ObjectHideFlags: 0

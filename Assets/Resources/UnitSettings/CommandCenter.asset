@@ -49,7 +49,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 1
   <unitImage>k__BackingField: {fileID: 21300000, guid: fbf86d4a829f3e547bd001dac19d8ee7, type: 3}
   <occupyPSlots>k__BackingField: 0
-  <type>k__BackingField: 0
+  <id>k__BackingField: 0
   <cost>k__BackingField: 1
   <maxHealth>k__BackingField: 100
   <stoppingDistance>k__BackingField: 1
@@ -60,5 +60,5 @@ MonoBehaviour:
   <animDeath>k__BackingField: 0
   <unitType>k__BackingField: 0
   <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
-  <size>k__BackingField: {x: 1, y: 1, z: 1}
+  <size>k__BackingField: {x: 28, y: 7, z: 28}
   <spawnOnBuild>k__BackingField: 07000000

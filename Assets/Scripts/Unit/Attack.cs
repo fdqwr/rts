@@ -1,7 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.AI;
-using static Codice.Client.BaseCommands.QueryParser;
 namespace rts.Unit
 {
     public class Attack : NetworkBehaviour
@@ -11,6 +10,7 @@ namespace rts.Unit
         Aircraft unitAir;
         Transform t;
         NavMeshAgent agent;
+
         private void Start()
         {
             unit = GetComponent<Unit>();
@@ -20,43 +20,43 @@ namespace rts.Unit
             t = transform;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            Unit _u = orders.unitTargetClass;
-            if (!_u)
-                _u = orders.nearbyUnitTargetClass;
-            SetAimTargets(_u);
-            if (!_u || _u.isDestroyed || !IsServer)
+            Unit _target = orders.targetClass;
+            if (!_target)
+                _target = orders.nearbytargetClass;
+            SetAimTargets(_target);
+            if (!_target || _target.healthClass.isDestroyed || !IsServer)
                 return;
-            Vector3 _targetClosestPoint = _u.col.ClosestPoint(transform.position);
+            Vector3 _targetClosestPoint = _target.col.ClosestPoint(transform.position);
             float _distance = Vector3.Distance(_targetClosestPoint, t.position);
             if (unit.unitWeapons.Length == 0 || _distance >= unit.maxRange
-               || !orders.isAttackingTarget && !orders.nearbyUnitTargetClass || _u.IsInvulnerable
-               || unit.insideUnitClass && !unit.insideUnitClass.unitCarrier.shootFromInside)
+               || !orders.isAttackingTarget && !orders.nearbytargetClass || _target.IsInvulnerable
+               || unit.insideClass && !unit.insideClass.carrier.shootFromInside)
                 return;
-            if (agent && agent.enabled && orders.unitTargetClass)
+            if (agent && agent.enabled && orders.targetClass)
                 agent.stoppingDistance = unit.unitWeapons[0].maxDistance;
             for (int _i = 0; _i < unit.unitWeapons.Length; _i++)
             {
-                if (!IsServer || (!orders.unitTargetClass && !orders.nearbyUnitTargetClass) || !unit.WeaponReady(_i, _distance) ||
+                if (!IsServer || (!orders.targetClass && !orders.nearbytargetClass) || !unit.IsWeaponReady(_i, _distance) ||
                     (unitAir && (unitAir.aircraftState != Aircraft.AircraftState.flying || unitAir.altitude != 1)))
                     continue;
                 AttackRpc(_i);
             }
         }
+
         [Rpc(SendTo.Everyone)]
         public void AttackRpc(int _slot)
         {
             Unit.UnitWeaponStatsStruct weaponStats = unit.unitWeapons[_slot];
-            unit.RemoveAmmo(_slot);
-            Unit _u = orders.unitTargetClass;
+            unit.unitWeapons[_slot].RemoveAmmo();
+            Unit _u = orders.targetClass;
             if (!_u)
-                _u = orders.nearbyUnitTargetClass;
+                _u = orders.nearbytargetClass;
             if (weaponStats.shootParticles)
                 weaponStats.shootParticles.Play();
-            if (unit.characterAnimator)
-                unit.characterAnimator.SetTrigger("Shoot");
+            if (unit.animator)
+                unit.animator.SetTrigger("Shoot");
             if (weaponStats.projectile)
             {
                 int _spawnIndex = 0;
@@ -69,7 +69,7 @@ namespace rts.Unit
                     _rb.GetComponent<Projectile>().Setup(_u.transform, _u, weaponStats.damage, unit.unitWeapons[_slot].projectileSpeed);
                 else _rb.GetComponent<Projectile>().Setup(null, null, unit.unitWeapons[_slot].damage, unit.unitWeapons[_slot].projectileSpeed);
             }
-            else if (IsServer) _u.GetDamage(weaponStats.damage, false);
+            else if (IsServer) _u.healthClass.GetDamage(weaponStats.damage, false);
         }
         void SetAimTargets(Unit _u)
         {
@@ -78,7 +78,7 @@ namespace rts.Unit
                 Turret _uA = unit.unitWeapons[i].unitAim;
                 if (!_uA || unit.unitWeapons[i].unitAimParent)
                     continue;
-                if (!_u || _u.isDestroyed)
+                if (!_u || _u.healthClass.isDestroyed)
                     _uA.SetTarget(null);
                 else
                 {

@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 4118624764319047113}
   - component: {fileID: 4167576940975035874}
   - component: {fileID: 6909939523797840898}
+  - component: {fileID: 1021221043602038566}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1913813274
+  GlobalObjectIdHash: 1047567003
   InScenePlacedSourceGlobalObjectIdHash: 1027916693
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -232,14 +233,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be739062a3f7f854380cfc32af0125e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 4827195164802518472}
+  <cam>k__BackingField: {fileID: 4827195164802518472}
   selectTexture: {fileID: 2800000, guid: d8e2fef55b782af40aeb0ba30eceae26, type: 3}
   buildingMaterial: {fileID: 2100000, guid: dcd622b90349d054683766b29930d3fb, type: 2}
   camSpeed: 10
   zoomSpeed: 30
-  bot: 1
-  playerID:
-    m_InternalValue: 0
+--- !u!114 &1021221043602038566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530811873295252815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &7462899811639869635
 GameObject:
   m_ObjectHideFlags: 0

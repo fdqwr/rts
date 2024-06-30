@@ -16,6 +16,7 @@ namespace rts.Unit
         Quaternion defCannonRot;
         Vector3? target = null;
         public bool onTheTarget { get; private set; }
+
         void Awake()
         {
             unit = GetComponent<Unit>();
@@ -24,6 +25,7 @@ namespace rts.Unit
             if (cannon)
                 defCannonRot = cannon.localRotation;
         }
+
         void Update()
         {
             bool _horizontalFinished = true;
@@ -83,10 +85,12 @@ namespace rts.Unit
                 }
             }
         }
+
         public void SetTarget(Vector3? _t)
         {
             target = _t;
         }
+
         float? CalculateAngle(bool _low)
         {
             float _projectileGravity = 9.81f;

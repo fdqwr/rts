@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3684858917651734035
 Transform:
   m_ObjectHideFlags: 0
@@ -662,10 +662,11 @@ GameObject:
   - component: {fileID: 376870615358404764}
   - component: {fileID: 1475209271233026447}
   - component: {fileID: 6662061818728474253}
-  - component: {fileID: 1325363178686490528}
+  - component: {fileID: 857188865883869978}
   - component: {fileID: 7092944375182717549}
   - component: {fileID: 3810435920657528749}
   - component: {fileID: 4493321315618864082}
+  - component: {fileID: -490915011671567148}
   m_Layer: 6
   m_Name: Airfield
   m_TagString: Untagged
@@ -708,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3419686056
+  GlobalObjectIdHash: 2194033700
   InScenePlacedSourceGlobalObjectIdHash: 3926202285
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -729,9 +730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 2ab6ca51ee44cf0498a36cd10d9286f2, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 2ab6ca51ee44cf0498a36cd10d9286f2, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 3133707674072500187}
   <constructionBox>k__BackingField: {fileID: 480437075803825390}
   <targetTransform>k__BackingField: {fileID: 8306791613753285216}
@@ -739,13 +740,14 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 1489576212824901579}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 1782300390525348933}
   unitSkinnedRendererColor: []
   <unitWeapons>k__BackingField: []
---- !u!114 &1325363178686490528
+  menuUI: {fileID: 0}
+--- !u!114 &857188865883869978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -754,10 +756,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3393455778019190844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
+  m_Script: {fileID: 11500000, guid: 151946dc77228cf4c9e897981a2e393c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aircraftHangar:
+  <aircraftHangar>k__BackingField:
   - hangarDoor: {fileID: 2240472637674660647}
     inHangarPosition: {fileID: 6511227311357254532}
     nearHangarPosition: {fileID: 812432735494227911}
@@ -782,15 +784,6 @@ MonoBehaviour:
     aircraftRunwayPosition: {fileID: 7220854300138459378}
     outHangarPosition: {fileID: 7509819278864399982}
     aircraftForHangar: {fileID: 0}
-  helicopterBlade:
-  - {fileID: 812432735494227911}
-  - {fileID: 745838698826353153}
-  - {fileID: 6648283143956801494}
-  - {fileID: 8400733131645988701}
-  speed: 10
-  onTheGroundSpeed: 3
-  nearTakeOffSpeed: 7
-  rotationSpeed: 0
 --- !u!65 &7092944375182717549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -859,6 +852,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-490915011671567148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393455778019190844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &4909960901014847222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +1049,7 @@ Transform:
   m_GameObject: {fileID: 5644374163574781580}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 6.916001, y: 0.126, z: 11.3}
+  m_LocalPosition: {x: -1.890001, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1105,7 +1111,7 @@ Transform:
   m_GameObject: {fileID: 6516013494375698770}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -13.020002, y: 0.126, z: 3.930004}
+  m_LocalPosition: {x: -13.020002, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.69999987, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1136,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 7102031982131017005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
-  m_LocalPosition: {x: 6.330009, y: 0.126, z: 3.930004}
+  m_LocalPosition: {x: 6.330009, y: 0.126, z: 11.3}
   m_LocalScale: {x: 0.6999998, y: 0.7, z: 0.6999998}
   m_ConstrainProportionsScale: 0
   m_Children: []

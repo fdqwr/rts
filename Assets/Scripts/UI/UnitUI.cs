@@ -6,6 +6,10 @@ namespace rts.UI
 {
     using rts.Unit;
     using rts.Player;
+    using rts.GameLogic;
+    using Zenject;
+    using DG.Tweening.Core.Easing;
+
     public class UnitUI : MonoBehaviour
     {
         Image healthImage;
@@ -13,26 +17,40 @@ namespace rts.UI
         [SerializeField] TextMeshProUGUI buildingUI;
         [SerializeField] TextMeshProUGUI hotkeyUI;
         [SerializeField] RectTransform minimapImage;
+        RectTransform rectTransform;
         Unit unit;
         float showHealthTime;
         bool healthActive;
         bool buildActivce;
         Camera cam;
+        GameData gameData;
+        GameManager gameManager;
+        MenuUI menuUI;
+        [Inject]
+        public void Construct(GameManager _gameManager, GameData _gameData, MenuUI _menuUI)
+        {
+            gameManager = _gameManager;
+            gameData = _gameData;
+            menuUI = _menuUI;
+        }
         private void OnDisable()
         {
             minimapImage.gameObject.SetActive(false);
         }
+
         private void Start()
         {
+            rectTransform = GetComponent<RectTransform>();
             healthImage = healthBar.fillRect.GetComponent<Image>();
-            minimapImage.SetParent(MenuUI.i.minimapUIParent);
-            minimapImage.GetComponent<Image>().color = GameData.i.GetColor(unit.team.Value);
+            minimapImage.SetParent(menuUI.minimapUIParent);
+            minimapImage.GetComponent<Image>().color = gameData.GetColor(unit.team.Value);
         }
+
         private void Update()
         {
             if (!unit)
                 return;
-            minimapImage.position = new Vector3(unit.transform.position.x, unit.transform.position.z, 0) * MapSettings.i.minimapScale;
+            minimapImage.position = new Vector3(unit.transform.position.x, unit.transform.position.z, 0) * gameManager.mapSettings.maps[menuUI.map.Value].minimapScale;
             if (showHealthTime > 0)
             {
                 showHealthTime -= Time.deltaTime;
@@ -42,10 +60,11 @@ namespace rts.UI
             if (!healthActive && !buildActivce)
                 return;
             if (!cam)
-                cam = GameData.i.GetPlayer(Player.localPlayer).PlayerCamera;
+                cam = Player.localPlayerClass.cam;
             else
-                GetComponent<RectTransform>().position = cam.WorldToScreenPoint(unit.transform.position + Vector3.up * 5);
+                rectTransform.position = cam.WorldToScreenPoint(unit.transform.position + Vector3.up * 5);
         }
+
         public void SetHealthUI(float _health)
         {
             if (!healthImage)
@@ -58,12 +77,14 @@ namespace rts.UI
             else
                 healthImage.color = Color.red;
         }
+
         public void SetBuildUI(float _build)
         {
             buildingUI.gameObject.SetActive((_build < 100));
             buildActivce = (_build < 100);
             buildingUI.text = ((int)(_build)).ToString() + "%";
         }
+
         public void SetHotkeyUI(int _hotkey)
         {
             hotkeyUI.gameObject.SetActive((_hotkey > 0));
@@ -71,6 +92,7 @@ namespace rts.UI
                 hotkeyUI.text = "";
             else hotkeyUI.text = (_hotkey).ToString();
         }
+
         public void SActive(bool _active, float _time)
         {
             healthActive = _active;
@@ -78,10 +100,12 @@ namespace rts.UI
             healthBar.gameObject.SetActive(healthActive);
             showHealthTime = _time;
         }
+
         public void SetUnit(Unit _unit)
         {
             unit = _unit;
         }
+
         public void SelfDestruct()
         {
             minimapImage.SetParent(transform);

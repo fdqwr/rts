@@ -256,10 +256,11 @@ GameObject:
   - component: {fileID: 4271671449199950949}
   - component: {fileID: 503958882944890710}
   - component: {fileID: 7805353152732981293}
-  - component: {fileID: -5422698003331684019}
+  - component: {fileID: 1503866976471549893}
   - component: {fileID: 5282614476708858468}
   - component: {fileID: 1847589248718959811}
   - component: {fileID: 777809036918275258}
+  - component: {fileID: -3309785828913286232}
   m_Layer: 6
   m_Name: Aircraft
   m_TagString: Untagged
@@ -320,18 +321,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: 90f937ce2cbfc5f4e8c243bfea77d260, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 0}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: 90f937ce2cbfc5f4e8c243bfea77d260, type: 2}
+  <animator>k__BackingField: {fileID: 0}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 2911458655447439377}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 877370740486536736}
   newUnitSpawnPosition: {fileID: 0}
-  newUnitAfterSpawnPosition: {fileID: 0}
+  <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 0, z: 1}
-  wheels: []
+  <wheelsAxis>k__BackingField: {x: 0, y: 0, z: 1}
+  <wheels>k__BackingField: []
   unitRendererColor:
   - {fileID: 3704043879373339076}
   unitSkinnedRendererColor: []
@@ -340,11 +341,8 @@ MonoBehaviour:
     unitAimParent: 0
     damage: 15
     firerate: 0.2
-    ammoSize: 6
+    maxAmmo: 0
     reloadSpeed: 0
-    cFirerateReload: 0
-    cReloadSpeed: 0
-    currentAmmo: 0
     shootParticles: {fileID: 0}
     projectile: {fileID: 4551755868784217734, guid: 58e65138876484a469b640579771fe43, type: 3}
     projectileSpawn:
@@ -358,7 +356,11 @@ MonoBehaviour:
     projectileSpeed: 25
     maxDistance: 100
     minDistance: 0
---- !u!114 &-5422698003331684019
+    firerateProgress: 0
+    reloadProgress: 0
+    currentAmmo: 0
+  menuUI: {fileID: 0}
+--- !u!114 &1503866976471549893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -367,16 +369,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5487217982676071952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52d020671701ba5438e9b5f1c6301c62, type: 3}
+  m_Script: {fileID: 11500000, guid: a2d621f7e876db5499d1b7d637d05537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aircraftHangar: []
-  helicopterBlade: []
-  speed: 50
-  onTheGroundSpeed: 3
-  nearTakeOffSpeed: 7
-  rotationSpeed: 0
-  unit: {fileID: 0}
+  <speed>k__BackingField: 30
+  <rotationSpeed>k__BackingField: 50
+  <onTheGroundSpeed>k__BackingField: 3
+  <nearTakeOffSpeed>k__BackingField: 7
 --- !u!65 &5282614476708858468
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -456,6 +455,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-3309785828913286232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487217982676071952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &5771073303427516673
 GameObject:
   m_ObjectHideFlags: 0

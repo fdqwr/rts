@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -348581709368886681}
   - component: {fileID: 8174024153208453259}
   - component: {fileID: -7453754877843771064}
+  - component: {fileID: -3798324498395043187}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -47,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1502756246
+  GlobalObjectIdHash: 1027916693
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -68,13 +69,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c61e28820e1e9042a6be4b427dc1d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1731013763484070258}
+  <cam>k__BackingField: {fileID: 1731013763484070258}
   selectTexture: {fileID: 2800000, guid: d8e2fef55b782af40aeb0ba30eceae26, type: 3}
   buildingMaterial: {fileID: 2100000, guid: dcd622b90349d054683766b29930d3fb, type: 2}
   camSpeed: 10
   zoomSpeed: 30
-  playerID:
-    m_InternalValue: 0
 --- !u!54 &-7453754877843771064
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102,6 +101,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3798324498395043187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557394927222329639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &3393390844073365430
 GameObject:
   m_ObjectHideFlags: 0

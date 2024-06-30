@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1360545045594238837}
   - component: {fileID: 3649993498436835887}
+  - component: {fileID: -7167167445261416395}
   m_Layer: 6
   m_Name: UnitUI
   m_TagString: Untagged
@@ -56,6 +57,19 @@ MonoBehaviour:
   buildingUI: {fileID: 1046331682513627524}
   hotkeyUI: {fileID: 4461430020253832431}
   minimapImage: {fileID: 4904727799678369109}
+--- !u!114 &-7167167445261416395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804965103696533006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &1367039745335553140
 GameObject:
   m_ObjectHideFlags: 0

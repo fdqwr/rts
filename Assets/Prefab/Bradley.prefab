@@ -7704,6 +7704,7 @@ GameObject:
   - component: {fileID: 7172291199299955032}
   - component: {fileID: -5270715984610589621}
   - component: {fileID: 4209912154157058703}
+  - component: {fileID: -3165906070176869006}
   m_Layer: 6
   m_Name: Bradley
   m_TagString: Untagged
@@ -7740,7 +7741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2200626581
+  GlobalObjectIdHash: 2237535386
   InScenePlacedSourceGlobalObjectIdHash: 2196005913
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -7761,9 +7762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3c5dadd78e91b429006ed5776d30e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <unitSettings>k__BackingField: {fileID: 11400000, guid: dad35f267eb73ec479895aa1ff3fc25d, type: 2}
-  <characterAnimator>k__BackingField: {fileID: 2195806660051923598}
-  onDeathEffect: {fileID: 0}
+  <settings>k__BackingField: {fileID: 11400000, guid: dad35f267eb73ec479895aa1ff3fc25d, type: 2}
+  <animator>k__BackingField: {fileID: 2195806660051923598}
+  <onDeathEffect>k__BackingField: {fileID: 0}
   <visualObject>k__BackingField: {fileID: 71693608882420735}
   <constructionBox>k__BackingField: {fileID: 0}
   <targetTransform>k__BackingField: {fileID: 7585496020644201811}
@@ -7771,8 +7772,8 @@ MonoBehaviour:
   <newUnitAfterSpawnPosition>k__BackingField: {fileID: 0}
   newUnitSpawnDoor: {fileID: 0}
   doorOffset: 0
-  wheelsAxis: {x: 0, y: 2, z: 0}
-  wheels:
+  <wheelsAxis>k__BackingField: {x: 0, y: 1, z: 0}
+  <wheels>k__BackingField:
   - {fileID: 8585625914420395549}
   - {fileID: 2212212579559136883}
   - {fileID: 8480138205958426115}
@@ -7788,11 +7789,8 @@ MonoBehaviour:
     unitAimParent: 0
     damage: 25
     firerate: 0.2
-    ammoSize: 0
+    maxAmmo: 0
     reloadSpeed: 0
-    cFirerateReload: 0
-    cReloadSpeed: 0
-    currentAmmo: 0
     shootParticles: {fileID: 6527410148940859809}
     projectile: {fileID: 0}
     projectileSpawn: []
@@ -7800,15 +7798,15 @@ MonoBehaviour:
     projectileSpeed: 0
     maxDistance: 35
     minDistance: 0
+    firerateProgress: 0
+    reloadProgress: 0
+    currentAmmo: 0
   - unitAim: {fileID: 3236277818417109371}
     unitAimParent: 1
     damage: 40
     firerate: 0.5
-    ammoSize: 2
+    maxAmmo: 0
     reloadSpeed: 5
-    cFirerateReload: 0
-    cReloadSpeed: 0
-    currentAmmo: 0
     shootParticles: {fileID: 2195156617476653698}
     projectile: {fileID: 4551755868784217734, guid: 58e65138876484a469b640579771fe43, type: 3}
     projectileSpawn:
@@ -7818,6 +7816,10 @@ MonoBehaviour:
     projectileSpeed: 35
     maxDistance: 35
     minDistance: 0
+    firerateProgress: 0
+    reloadProgress: 0
+    currentAmmo: 0
+  menuUI: {fileID: 0}
 --- !u!114 &3236277818417109371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7964,6 +7966,19 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-3165906070176869006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4308155354113903134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 0
 --- !u!1 &4448546457925236620
 GameObject:
   m_ObjectHideFlags: 0
